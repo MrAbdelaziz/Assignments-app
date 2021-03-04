@@ -1,0 +1,16 @@
+section.main-container{
+  display: flex;
+  height:100%;
+  background-color: white;
+  font-size: 16px;
+
+
+  app-dash-sidebar{
+    height:auto;
+  }
+
+  app-dash-content {
+    height:100%;
+    width:100%;
+  }
+}

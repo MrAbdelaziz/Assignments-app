@@ -4,6 +4,7 @@ import {ClientLayoutComponent} from './client-side/client-layout.component';
 import {DashLayoutComponent} from './dash-board/dash-layout.component';
 import {ClientHomeComponent} from './client-side/contents/client-home/client-home.component';
 import {DashLoginComponent} from './dash-board/contents/dash-login/dash-login.component';
+import {DashHomeComponent} from './dash-board/contents/dash-home/dash-home.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     component: DashLayoutComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: DashHomeComponent },
       { path: 'login', component: DashLoginComponent }
       /*
       { path: 'home', component: HomeDashComponent },
@@ -27,14 +29,14 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'client',
+    path: 'web',
     component: ClientLayoutComponent,
     children: [
       {path: '', redirectTo: 'home', pathMatch: 'full' },
       {path: 'home', component: ClientHomeComponent}
     ]
   },
-  {path: '**', redirectTo: 'client', pathMatch: 'full' },
+  {path: '**', redirectTo: 'web', pathMatch: 'full' },
 
 
 ];
