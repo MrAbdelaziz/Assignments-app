@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {TokenStorageService} from '../../../_services/token-storage.service';
 
 @Component({
   selector: 'app-main-container',
@@ -8,7 +7,7 @@ import {TokenStorageService} from '../../../_services/token-storage.service';
 })
 export class MainContainerComponent implements OnInit {
 
-  constructor(private tokenStorage: TokenStorageService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

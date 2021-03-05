@@ -66,9 +66,10 @@
       </form>
       <div class="alert alert-success" *ngIf="isLoggedIn">
         Logged in as {{ username }}.
+        <br>
+        <button color="primary"(click)="logout()" mat-raised-button>logOut</button>
+
       </div>
-
-
 
     </mat-card-content>
   </mat-card>

@@ -3,13 +3,15 @@
     <img alt="avatar"
          mat-card-avatar
          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8K-kfbxSsaGJugBkF_sfdl1Ms1UUKcRnvRQ&usqp=CAU">
+    <div style="margin-right: auto;">{{user.username}}</div>
+    <div style="margin-left: auto;" *ngIf="user.groupe">|| {{user.groupe}}</div>
     <div class="sidebar__header__icons">
       <div></div>
       <button [mat-menu-trigger-for]="menu" mat-icon-button>
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item >Logout</button>
+        <button mat-menu-item (click)="signout()" >Logout</button>
       </mat-menu>
     </div>
   </div>

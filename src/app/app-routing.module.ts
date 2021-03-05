@@ -58,7 +58,7 @@ const routes: Routes = [
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: MainContainerComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -72,12 +72,14 @@ const routes: Routes = [
         component: DevoirDefaultPageComponent
       }
     ],
-   // canActivate: [UserGuard]
+    canActivate: [UserGuard]
   },
   {
     path: 'login',
     component: LoginComponent
-  }
+  },  {path: '**', redirectTo: '', pathMatch: 'full' },
+
+
 ];
 
 

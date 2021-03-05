@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import {User} from '../models/user.model';
 
 const TOKEN_KEY = 'auth-token';
-const USER_KEY = 'auth-user';
-const GROUPE_KEY = 'user-groupe';
+const USER_AUTH = 'auth-user';
+/*const GROUPE_KEY = 'user-groupe';
 const ROLE_KEY = 'user-role';
+const USER_ID = 'user-id';*/
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ export class TokenStorageService {
 
   signOut(): void {
     window.sessionStorage.clear();
+    window.location.reload();
   }
 
   public saveToken(token: string): void {
@@ -25,17 +28,15 @@ export class TokenStorageService {
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(user: any, groupe: any , role: any): void {
-    window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.removeItem(GROUPE_KEY);
-    window.sessionStorage.removeItem(ROLE_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
-    window.sessionStorage.setItem(GROUPE_KEY, JSON.stringify(groupe));
-    window.sessionStorage.setItem(ROLE_KEY, JSON.stringify(role));
+  public saveUser(user: User): void {
+
+    window.sessionStorage.removeItem(USER_AUTH);
+    window.sessionStorage.setItem(USER_AUTH, JSON.stringify(user));
+
   }
 
   public getUser(): any {
-    const user = window.sessionStorage.getItem(USER_KEY);
+    const user =  JSON.parse(window.sessionStorage.getItem(USER_AUTH));
     if (user) {
       return user;
     }
