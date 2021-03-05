@@ -11,6 +11,7 @@ import {DashSidebarComponent} from './dash-board/layout/dash-sidebar/dash-sideba
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
+
 // Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
@@ -58,6 +59,7 @@ import { DevoirSectionComponent } from './dashboard/components/main-container/de
 
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import {HttpClientModule} from '@angular/common/http';
+import {authInterceptorProviders} from './_helpers/auth.interceptor';
 
 
 
@@ -134,8 +136,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

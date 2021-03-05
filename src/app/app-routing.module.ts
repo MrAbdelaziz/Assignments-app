@@ -72,7 +72,7 @@ const routes: Routes = [
         component: DevoirDefaultPageComponent
       }
     ],
-    canActivate: [UserGuard]
+   // canActivate: [UserGuard]
   },
   {
     path: 'login',
