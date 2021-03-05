@@ -46,6 +46,18 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DashContentComponent } from './dash-board/layout/dash-content/dash-content.component';
 import { DashDevoirComponent } from './dash-board/layout/dash-content/dash-devoir/dash-devoir.component';
 import { DashAssignementComponent } from './dash-board/layout/dash-sidebar/dash-assignement/dash-assignement.component';
+import { DashNewDevoirComponent } from './dash-board/layout/dash-content/dash-new-devoir/dash-new-devoir.component';
+import { DashDefaultComponent } from './dash-board/layout/dash-content/dash-default/dash-default.component';
+import { LoginComponent } from './dashboard/components/login/login.component';
+import { MainContainerComponent } from './dashboard/components/main-container/main-container.component';
+import { SidebarComponent } from './dashboard/components/main-container/sidebar/sidebar.component';
+import { SidebarContentComponent } from './dashboard/components/main-container/sidebar/sidebar-content/sidebar-content.component';
+import { DevoirAreaComponent } from './dashboard/components/main-container/devoir-area/devoir-area.component';
+import { DevoirDefaultPageComponent } from './dashboard/components/main-container/devoir-area/devoir-default-page/devoir-default-page.component';
+import { DevoirSectionComponent } from './dashboard/components/main-container/devoir-area/devoir-section/devoir-section.component';
+
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -60,7 +72,16 @@ import { DashAssignementComponent } from './dash-board/layout/dash-sidebar/dash-
     DashSidebarComponent,
     DashContentComponent,
     DashDevoirComponent,
-    DashAssignementComponent
+    DashAssignementComponent,
+    DashNewDevoirComponent,
+    DashDefaultComponent,
+    LoginComponent,
+    MainContainerComponent,
+    SidebarComponent,
+    SidebarContentComponent,
+    DevoirAreaComponent,
+    DevoirDefaultPageComponent,
+    DevoirSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -109,9 +130,13 @@ import { DashAssignementComponent } from './dash-board/layout/dash-sidebar/dash-
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
