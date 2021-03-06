@@ -5,6 +5,9 @@ import {DevoirSectionComponent} from './dashboard/components/main-container/devo
 import {DevoirDefaultPageComponent} from './dashboard/components/main-container/devoir-area/devoir-default-page/devoir-default-page.component';
 import {LoginComponent} from './dashboard/components/login/login.component';
 import {UserGuard} from './guards/user.guard';
+import {AssignementContentComponent} from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
+import {StudentContentComponent} from './dashboard/components/main-container/sidebar/student-content/student-content.component';
+import {MatiereContentComponent} from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
 
 /*
 import {ClientLayoutComponent} from './client-side/client-layout.component';
@@ -61,23 +64,45 @@ const routes: Routes = [
     path: '',
     component: MainContainerComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+     // { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'assignement/:id',
         component: DevoirSectionComponent
       },
-
       {
         path: 'home',
-        component: DevoirDefaultPageComponent
-      }
+        component: DevoirDefaultPageComponent,
+      },
+      {
+        path: 'assignements',
+        component: AssignementContentComponent,
+        outlet: 'path'
+      },
+      {
+        path: 'etudiants',
+        component: StudentContentComponent,
+      },
+      {
+        path: 'etudiants',
+        component: StudentContentComponent,
+        outlet: 'path'
+      },
+      {
+        path: 'matieres',
+        component: MatiereContentComponent,
+      },
+      {
+        path: 'matieres',
+        component: MatiereContentComponent,
+        outlet: 'path'
+      },
     ],
     canActivate: [UserGuard]
-  },
-  {
+  }, {
     path: 'login',
     component: LoginComponent
-  },  {path: '**', redirectTo: '', pathMatch: 'full' },
+  },
+  // {path: '**', redirectTo: '', pathMatch: 'full' },
 
 
 ];

@@ -37,7 +37,10 @@
 
   <div class="sidebar__content">
     <ng-container>
-      <app-sidebar-content></app-sidebar-content>
+<!--
+      [routerLink]="[ &ndash;&gt;'/en', <&#45;&#45; {outlets: {side_menu: ['imprint']}}]"
+-->
+      <router-outlet name="path"></router-outlet>
     </ng-container>
   </div>
 

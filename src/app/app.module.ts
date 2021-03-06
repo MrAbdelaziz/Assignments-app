@@ -60,6 +60,9 @@ import { DevoirSectionComponent } from './dashboard/components/main-container/de
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import {HttpClientModule} from '@angular/common/http';
 import {authInterceptorProviders} from './_helpers/auth.interceptor';
+import { AssignementContentComponent } from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
+import { StudentContentComponent } from './dashboard/components/main-container/sidebar/student-content/student-content.component';
+import { MatiereContentComponent } from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
 
 
 
@@ -83,7 +86,10 @@ import {authInterceptorProviders} from './_helpers/auth.interceptor';
     SidebarContentComponent,
     DevoirAreaComponent,
     DevoirDefaultPageComponent,
-    DevoirSectionComponent
+    DevoirSectionComponent,
+    AssignementContentComponent,
+    StudentContentComponent,
+    MatiereContentComponent
   ],
   imports: [
     BrowserModule,
