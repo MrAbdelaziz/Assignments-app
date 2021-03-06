@@ -4,6 +4,7 @@ import {AuthService} from '../../../_services/auth.service';
 import {TokenStorageService} from '../../../_services/token-storage.service';
 import {Router} from '@angular/router';
 import {User} from '../../../models/user.model';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -52,12 +53,20 @@ export class LoginComponent implements OnInit {
   username: string;
   user: User;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.username = this.tokenStorage.getUser().username;
+
+      this.snackBar.open('Logged in as ' + this.username, 'Close', {
+        duration: 4000,
+        horizontalPosition: 'end',
+        verticalPosition: 'top',
+        panelClass: ['green-snackbar', 'login-snackbar'],
+      });
+
     }
   }
 
@@ -92,6 +101,12 @@ export class LoginComponent implements OnInit {
       },
       err => {
         this.errorMessage = err.error.message;
+        this.snackBar.open(this.errorMessage, 'Close', {
+          duration: 4000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar','login-snackbar']
+        });
         this.isLoginFailed = true;
       }
     );
@@ -104,4 +119,6 @@ export class LoginComponent implements OnInit {
   logout(): void {
     this.tokenStorage.signOut();
   }
+
+
 }
