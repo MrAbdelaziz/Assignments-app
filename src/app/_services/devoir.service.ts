@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {Assignement} from '../models/assignement.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AssignementService {
+export class DevoirService {
 
   constructor(private http: HttpClient) { }
-  url = 'http://assignement-mr-buffa-server.herokuapp.com/api/assignements';
+  url = 'http://assignement-mr-buffa-server.herokuapp.com/api/devoires';
 
-  getAssignmentsPagine(nextPage: number = 1, limit: number = 10): Observable<any> {
-    const urlPagination = this.url + `?page=${nextPage}&limit=${limit}`;
+  getDevoirsPagine(nextPage: number = 1, limit: number = 10, id: number,userid: number): Observable<any> {
+    const urlPagination = this.url + `?page=${nextPage}&limit=${limit}&assignment=${id}&user=${userid}`;
     console.log('Requête paginée envoyée : ' + urlPagination);
     return this.http.get<any>(urlPagination);
   }
 
-  addAssignment(newAssignment: Assignement): any {
+/*  addAssignment(newAssignment: Assignement): any {
     return this.http.post(this.url, newAssignment);
   }
 
   getAssignment(id: number): any{
     return this.http.get<any>(this.url + '/' + id);
-  }
+  }*/
 
 }

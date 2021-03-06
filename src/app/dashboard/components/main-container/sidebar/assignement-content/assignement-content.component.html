@@ -7,7 +7,7 @@
     <span class="caption">Ajouter Assignment</span>
 -->
 
-    <a routerLink="/add">
+    <a routerLink="/addAssignement">
       <button mat-flat-button style="background-color: #009688;color: white" >
         Ajouter Assignment
       </button>
@@ -16,8 +16,13 @@
 </section>
 <cdk-virtual-scroll-viewport itemSize="50" class="content" #scroller>
   <mat-list *cdkVirtualFor="let a of assignments">
-    <section class="sidebar-content">
+<!--
+    <a  href="/assignement/{{a._id}}(path:assignements)">
+-->
 
+    <a  routerLink="/assignement/{{a._id}}">
+
+    <section class="sidebar-content">
       <div class="item">
         <img src="https://avatars.dicebear.com/api/human/{{a.user.name }}.svg" alt="avatar" mat-card-avatar>
         <span class="caption">{{a.user.name}}</span>
@@ -30,5 +35,7 @@
         </span>
       </div>
     </section>
+
+    </a>
   </mat-list>
 </cdk-virtual-scroll-viewport>

@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {MainContainerComponent} from './dashboard/components/main-container/main-container.component';
-import {DevoirSectionComponent} from './dashboard/components/main-container/devoir-area/devoir-section/devoir-section.component';
 import {DevoirDefaultPageComponent} from './dashboard/components/main-container/devoir-area/devoir-default-page/devoir-default-page.component';
 import {LoginComponent} from './dashboard/components/login/login.component';
 import {UserGuard} from './guards/user.guard';
 import {AssignementContentComponent} from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
 import {StudentContentComponent} from './dashboard/components/main-container/sidebar/student-content/student-content.component';
 import {MatiereContentComponent} from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
+import {AddAssignementComponent} from './dashboard/components/main-container/devoir-area/add-assignement/add-assignement.component';
+import {AddDevoirComponent} from './dashboard/components/main-container/devoir-area/add-devoir/add-devoir.component';
 
 /*
 import {ClientLayoutComponent} from './client-side/client-layout.component';
@@ -67,11 +68,15 @@ const routes: Routes = [
      // { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'assignement/:id',
-        component: DevoirSectionComponent
+        component: AddDevoirComponent
       },
       {
         path: 'home',
         component: DevoirDefaultPageComponent,
+      },
+      {
+        path: 'addAssignement',
+        component: AddAssignementComponent,
       },
       {
         path: 'assignements',

@@ -50,10 +50,8 @@ import { DashDefaultComponent } from './dash-board/layout/dash-content/dash-defa
 import { LoginComponent } from './dashboard/components/login/login.component';
 import { MainContainerComponent } from './dashboard/components/main-container/main-container.component';
 import { SidebarComponent } from './dashboard/components/main-container/sidebar/sidebar.component';
-import { SidebarContentComponent } from './dashboard/components/main-container/sidebar/sidebar-content/sidebar-content.component';
 import { DevoirAreaComponent } from './dashboard/components/main-container/devoir-area/devoir-area.component';
 import { DevoirDefaultPageComponent } from './dashboard/components/main-container/devoir-area/devoir-default-page/devoir-default-page.component';
-import { DevoirSectionComponent } from './dashboard/components/main-container/devoir-area/devoir-section/devoir-section.component';
 
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import {HttpClientModule} from '@angular/common/http';
@@ -62,6 +60,8 @@ import { AssignementContentComponent } from './dashboard/components/main-contain
 import { StudentContentComponent } from './dashboard/components/main-container/sidebar/student-content/student-content.component';
 import { MatiereContentComponent } from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { AddAssignementComponent } from './dashboard/components/main-container/devoir-area/add-assignement/add-assignement.component';
+import { AddDevoirComponent } from './dashboard/components/main-container/devoir-area/add-devoir/add-devoir.component';
 
 
 
@@ -80,13 +80,13 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     LoginComponent,
     MainContainerComponent,
     SidebarComponent,
-    SidebarContentComponent,
     DevoirAreaComponent,
     DevoirDefaultPageComponent,
-    DevoirSectionComponent,
     AssignementContentComponent,
     StudentContentComponent,
-    MatiereContentComponent
+    MatiereContentComponent,
+    AddAssignementComponent,
+    AddDevoirComponent
   ],
   imports: [
     BrowserModule,
