@@ -1,13 +1,14 @@
-import {Component, NgZone, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
 import {TokenStorageService} from '../../../../../_services/token-storage.service';
 import {AssignementService} from '../../../../../_services/assignement.service';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {DevoirService} from '../../../../../_services/devoir.service';
 import {Devoire} from '../../../../../models/devoire.model';
-import {filter} from 'rxjs/operators';
+import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
 import {ModalComponent} from '../modal/modal.component';
+import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-add-devoir',
@@ -25,6 +26,7 @@ export class AddDevoirComponent implements OnInit {
   nextPage = 1;
   limit = 10;
   countDevoirs: number;
+  @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
 
   constructor(    private ngZone: NgZone,
                   private tokenStorage: TokenStorageService,
@@ -44,7 +46,8 @@ export class AddDevoirComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       console.log(event.url);
-      this.devoirs = [];
+      this.devoirs.length = 0;
+      this.nextPage = 1;
       this.getAssignment();
     });
 
@@ -66,8 +69,9 @@ export class AddDevoirComponent implements OnInit {
   }
 
   getDeVOIRS(): void {
-    console.log("devoirs");
-   // if (!this.nextPage) { return; }
+    console.log('devoirs');
+    console.log(this.nextPage);
+    if (this.nextPage === null) { return; }
     this.devoirService
       .getDevoirsPagine(this.nextPage, this.limit, this.assignmentTransmis._id, this.tokenStorage.getUser().id)
       .subscribe((data: any) => {
@@ -102,5 +106,34 @@ export class AddDevoirComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  ngAfterViewInit() {
+    console.log('After view init');
+    this.scroller
+      .elementScrolled()
+      .pipe(
+        // on transforme les evenements en distances par rapport au bas du scroll
+        map((e) => {
+          return this.scroller.measureScrollOffset('bottom');
+        }),
+        tap((val) => {
+          // console.log(val);
+        }),
+        pairwise(),
+        filter(([y1, y2]) => {
+          return y2 < y1 && y2 < 140;
+        }),
+        throttleTime(200) // on n'enverra un subscribe que toutes les 200ms (on ignorera les evenements entre...)
+      )
+      .subscribe((_) => {
+        console.log(
+          '...Dans subscribe du scroller, je charge plus d\'assignments'
+        );
+        this.ngZone.run(() => {
+          // this.addMoreAssignments();
+          this.getDeVOIRS(); // déjà prêt car nextPage re-initialisé à chaque requête
+        });
+      });
   }
 }

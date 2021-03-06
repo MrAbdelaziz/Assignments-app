@@ -56,3 +56,16 @@ a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
+.note{
+  width: 50px;
+  height: 50px;
+  block-size: auto;
+  margin-left: auto;
+  font-size: x-large;
+}
+
+.status{
+
+  block-size: auto;
+  margin-left: auto;
+}

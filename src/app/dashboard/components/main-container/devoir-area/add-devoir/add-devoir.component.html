@@ -30,6 +30,14 @@
           {{a.remarques}}
         </span>
         </div>
+
+        <div class="note" *ngIf="a.type != 'EN ATTENTE'">
+          {{a.note}}/20
+      </div>
+
+        <div class="status" *ngIf="a.type === 'EN ATTENTE'">
+          EN ATTENTE
+        </div>
       </section>
 
     </a>
