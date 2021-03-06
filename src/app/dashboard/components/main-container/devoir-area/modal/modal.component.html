@@ -9,6 +9,7 @@
 </div>
 -->
 
+<form ngForm class="form" #assignmentForm>
 
 <h1 mat-dialog-title> Ajouter devoir</h1>
 <div mat-dialog-content>
@@ -19,7 +20,7 @@
         <ng-template matStepLabel>Questions</ng-template>
         <mat-form-field>
           <mat-label>Question :</mat-label>
-          <input matInput placeholder="Question 1 2 .." formControlName="title" required>
+          <input matInput placeholder="Question 1 2 .." formControlName="question"  [(ngModel)]="question"  name="question" required>
         </mat-form-field>
         <div>
           <button mat-button matStepperNext>Next</button>
@@ -30,7 +31,7 @@
       <form [formGroup]="secondFormGroup">
         <mat-form-field>
           <mat-label>Reponse</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="bla bla bla"
+          <input matInput formControlName="reponse" [(ngModel)]="reponse"  name="reponse" placeholder="bla bla bla"
                  required>
         </mat-form-field>
         <div>
@@ -43,7 +44,7 @@
       <ng-template matStepLabel>Done</ng-template>
       <p>You are now done.</p>
       <div>
-        <button mat-button [mat-dialog-close]="data.userid" cdkFocusInitial (click)="onSubmit()">Ajouter</button>
+        <button mat-button [mat-dialog-close]="data.userid" cdkFocusInitial (click)="onSubmit($event);">Ajouter</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
     </mat-step>
@@ -53,3 +54,4 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Close</button>
 </div>
+</form>
