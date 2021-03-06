@@ -1,0 +1,58 @@
+.sidebar-content{
+  display:flex;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid lightgray;
+
+  &:hover {
+    background-color: lightgray;
+  }
+
+  &__room {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+
+    span {
+      font-size: small;
+    }
+
+    span.sidebar-content__room__name {
+      font-size: 1.18rem;
+      align-self: flex-start;
+    }
+
+    span.sidebar-content__room__last-msg {
+      align-self: flex-start;
+    }
+  }
+}
+
+.content{
+  overflow-y: scroll;
+  flex:1;
+  height: 90%;
+}
+
+
+div.item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 120px;
+}
+img {
+  width: 50px;
+  height: 50px;
+  background-color: grey;
+}
+.caption {
+  display: block;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}

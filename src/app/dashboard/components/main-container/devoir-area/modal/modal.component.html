@@ -1,0 +1,55 @@
+<!--
+<h1 mat-dialog-title>Hi {{data.userid}}</h1>
+<div mat-dialog-content>
+  Hi {{data.assid}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.userid" cdkFocusInitial>Ok</button>
+</div>
+-->
+
+
+<h1 mat-dialog-title> Ajouter devoir</h1>
+<div mat-dialog-content>
+
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Questions</ng-template>
+        <mat-form-field>
+          <mat-label>Question :</mat-label>
+          <input matInput placeholder="Question 1 2 .." formControlName="title" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Reponse">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field>
+          <mat-label>Reponse</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="bla bla bla"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button [mat-dialog-close]="data.userid" cdkFocusInitial (click)="onSubmit()">Ajouter</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>
