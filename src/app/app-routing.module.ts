@@ -102,7 +102,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
-  // {path: '**', redirectTo: '', pathMatch: 'full' },
+   {path: '**', redirectTo: 'login', pathMatch: 'full' },
 
 
 ];

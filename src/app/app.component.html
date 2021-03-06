@@ -20,7 +20,7 @@ border-bottom-style: groove;">
     Assignements
     </section>
     </a>
-
+<span *ngIf="isAdmin">
     <a href="home(path:etudiants)" style="text-decoration:none;color: white"><section class="main-container" style="
     height: 35%;
     float: left;
@@ -52,6 +52,7 @@ border-bottom-style: groove;">
      Matières
     </section>
     </a>
+   </span>
     </span>
     <router-outlet></router-outlet>
     <router-outlet name='path'></router-outlet>

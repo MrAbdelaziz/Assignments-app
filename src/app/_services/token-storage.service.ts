@@ -42,4 +42,9 @@ export class TokenStorageService {
     }
     return {};
   }
+
+  public getRole(): any {
+    const user =  JSON.parse(window.sessionStorage.getItem(USER_AUTH));
+    return user.role === 'ADMIN';
+  }
 }

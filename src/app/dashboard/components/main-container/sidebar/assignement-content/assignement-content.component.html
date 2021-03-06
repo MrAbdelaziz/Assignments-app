@@ -1,7 +1,34 @@
-<section class="sidebar-content"  >
-  <img src="https://avatars.dicebear.com/api/human/abcd.svg" alt="avatar" mat-card-avatar>
-  <div class="sidebar-content__room">
-    <span class="sidebar-content__room__name"></span>
-    <span class="sidebar-content__room__last-msg"></span>
+
+
+
+<section class="sidebar-content">
+  <div class="item">
+<!--
+    <span class="caption">Ajouter Assignment</span>
+-->
+
+    <a routerLink="/add">
+      <button mat-flat-button style="background-color: #009688;color: white" >
+        Ajouter Assignment
+      </button>
+    </a>
   </div>
 </section>
+<cdk-virtual-scroll-viewport itemSize="50" class="content" #scroller>
+  <mat-list *cdkVirtualFor="let a of assignments">
+    <section class="sidebar-content">
+
+      <div class="item">
+        <img src="https://avatars.dicebear.com/api/human/{{a.user.name }}.svg" alt="avatar" mat-card-avatar>
+        <span class="caption">{{a.user.name}}</span>
+      </div>
+
+      <div class="sidebar-content__room">
+        <span class="sidebar-content__room__name">{{a.title}}</span>
+        <span class="sidebar-content__room__last-msg">
+          {{a.des}}
+        </span>
+      </div>
+    </section>
+  </mat-list>
+</cdk-virtual-scroll-viewport>

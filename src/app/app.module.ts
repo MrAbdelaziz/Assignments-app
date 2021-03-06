@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientLayoutComponent } from './client-side/client-layout.component';
-import { ClientHomeComponent } from './client-side/contents/client-home/client-home.component';
 import { DashLayoutComponent } from './dash-board/dash-layout.component';
 import {DashLoginComponent} from './dash-board/contents/dash-login/dash-login.component';
 import {DashHomeComponent} from './dash-board/contents/dash-home/dash-home.component';
@@ -63,6 +61,7 @@ import {authInterceptorProviders} from './_helpers/auth.interceptor';
 import { AssignementContentComponent } from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
 import { StudentContentComponent } from './dashboard/components/main-container/sidebar/student-content/student-content.component';
 import { MatiereContentComponent } from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 
@@ -70,8 +69,6 @@ import { MatiereContentComponent } from './dashboard/components/main-container/s
   declarations: [
     AppComponent,
     DashLayoutComponent,
-    ClientLayoutComponent,
-    ClientHomeComponent,
     DashLoginComponent,
     DashHomeComponent,
     DashSidebarComponent,
@@ -139,7 +136,8 @@ import { MatiereContentComponent } from './dashboard/components/main-container/s
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    ScrollingModule
   ],
   providers: [
     authInterceptorProviders

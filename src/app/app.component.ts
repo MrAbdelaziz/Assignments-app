@@ -11,13 +11,17 @@ import {Router} from '@angular/router';
 export class AppComponent implements OnInit{
   title = 'assignements-app';
   public isLoggedIn: boolean;
+  public isAdmin: boolean;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
+      this.isAdmin = this.tokenStorage.getRole();
       this.isLoggedIn = true;
     }
+
+
   }
 
 }
