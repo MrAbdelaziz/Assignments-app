@@ -2,6 +2,54 @@
 <div class="main">
   <header></header>
   <div class="main__body">
+    <span *ngIf="isLoggedIn">
+      <a routerLink="home" style="text-decoration:none;color: white">
+    <section class="main-container" style="
+    height: 35%;
+    float: left;
+    width: 52px;
+    writing-mode: vertical-lr;
+    align-items: center;
+    font-family: inherit;
+    place-content: center;
+    background-color: cornflowerblue;
+border-bottom-style: groove;">
+    Assignements
+    </section>
+    </a>
+
+    <a routerLink="etudiants" style="text-decoration:none;color: white"><section class="main-container" style="
+    height: 35%;
+    float: left;
+    width: 52px;
+    writing-mode: vertical-lr;
+    align-items: center;
+    font-family: inherit;
+    place-content: center;
+    background-color: darkslategrey;
+    color: beige;
+    clear: both;border-bottom-style: groove;">
+
+      Étudiants
+
+    </section></a>
+
+    <a routerLink="matières" style="text-decoration:none;color: white">
+    <section class="main-container" style="
+    height: 29%;
+    float: left;
+    width: 52px;
+    writing-mode: vertical-lr;
+    align-items: center;
+    font-family: inherit;
+    place-content: center;
+    background-color: cornflowerblue;
+    color: beige;
+    clear: both;border-bottom-style: groove;">
+     Matières
+    </section>
+    </a>
+    </span>
     <router-outlet></router-outlet>
   </div>
 </div>
