@@ -5,8 +5,8 @@ import {AssignementService} from '../../../../../_services/assignement.service';
 import {TokenStorageService} from '../../../../../_services/token-storage.service';
 import {ModalComponent} from '../../devoir-area/modal/modal.component';
 import {MatDialog} from '@angular/material/dialog';
-import {ModalDevoirComponent} from '../modal-devoir/modal-devoir.component';
-import {ModalActionsComponent} from '../modal-actions/modal-actions.component';
+import {ModalDevoirComponent} from './modal-devoir/modal-devoir.component';
+import {ModalActionsComponent} from './modal-actions/modal-actions.component';
 
 @Component({
   selector: 'app-assignement-content',
@@ -16,7 +16,6 @@ import {ModalActionsComponent} from '../modal-actions/modal-actions.component';
 export class AssignementContentComponent implements OnInit {
 
   assignments: Assignement[] = [];
-  assignmentSelectionne: Assignement;
 
   // Pour la pagination
   page: number;
@@ -27,7 +26,7 @@ export class AssignementContentComponent implements OnInit {
 
 
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
-  private groupe: string;
+  groupe: string;
 
 
   constructor(
@@ -39,7 +38,10 @@ export class AssignementContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAdmin = this.tokenStorage.getRole();
-    this.groupe = this.tokenStorage.getUser().groupe;
+    this.groupe = '';
+    if (!this.isAdmin) {
+      this.groupe = this.tokenStorage.getUser().groupe;
+    }
     this.getAssignments();
 
   }
@@ -48,7 +50,7 @@ export class AssignementContentComponent implements OnInit {
   getAssignments(nextPage: number = 1, limit: number = 10): void {
     if (!this.nextPage) { return; }
     this.assignmentsService
-      .getAssignmentsPagine(this.nextPage, this.limit,  'G2')
+      .getAssignmentsPagine(this.nextPage, this.limit,  this.groupe)
       .subscribe((data: any) => {
         this.page = data.page;
         this.nextPage = data.nextPage;
@@ -106,5 +108,13 @@ export class AssignementContentComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+
+  onSearchChange(value: any): void {
+    this.page = 1;
+    this.nextPage = 1;
+    this.assignments.length = 0 ;
+    this.getAssignments();
   }
 }

@@ -1,5 +1,16 @@
 
 
+<!--  SIDEBAR-->
+<div class="sidebar__search" *ngIf="isAdmin">
+  <div class="sidebar__search__content">
+
+    <input class="sidebar__search__content__input"
+           ngModel
+           placeholder="Groupe"
+           type="text" [(ngModel)]="groupe" name="groupe"  (ngModelChange)="onSearchChange($event)">
+
+  </div>
+</div>
 
 <section class="sidebar-content" *ngIf="isAdmin" >
   <div class="item" >
@@ -34,7 +45,13 @@
         <span class="sidebar-content__room__last-msg">
           {{a.des}}
         </span>
+
+        <span class="sidebar-content__room__last-msg" style="font-style: italic;align-self: center;">
+         matiere: {{a.user.matiere.name}}
+        </span>
       </div>
+
+
 
       <div class="status" *ngIf="isAdmin">
         <button mat-flat-button style="background-color: #009688;color: white"   (click)="modifDialog(a._id)">

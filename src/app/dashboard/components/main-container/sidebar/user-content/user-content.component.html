@@ -1,3 +1,14 @@
+<!--  SIDEBAR-->
+<div class="sidebar__search" *ngIf="isAdmin">
+  <div class="sidebar__search__content">
+
+    <input class="sidebar__search__content__input"
+           ngModel
+           placeholder="Groupe"
+           type="text" [(ngModel)]="groupe" name="groupe"  (ngModelChange)="onSearchChange($event)">
+
+  </div>
+</div>
 
 <section class="sidebar-content" *ngIf="isAdmin" >
   <div class="item" >

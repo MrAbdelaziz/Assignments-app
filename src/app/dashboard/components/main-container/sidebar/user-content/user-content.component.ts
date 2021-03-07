@@ -26,6 +26,7 @@ export class UserContentComponent implements OnInit {
 
 
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
+  groupe: any;
 
 
   constructor(
@@ -36,6 +37,7 @@ export class UserContentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.groupe = '';
     this.isAdmin = this.tokenStorage.getRole();
     this.getUsers();
   }
@@ -44,7 +46,7 @@ export class UserContentComponent implements OnInit {
   getUsers(nextPage: number = 1, limit: number = 10): void {
     if (!this.nextPage) { return; }
     this.userService
-      .getUsersPagine(this.nextPage, this.limit)
+      .getUsersPagine(this.nextPage, this.limit, this.groupe)
       .subscribe((data: any) => {
         this.page = data.page;
         this.nextPage = data.nextPage;
@@ -90,4 +92,11 @@ export class UserContentComponent implements OnInit {
     // TODO  new modal (user actions)
   }
 
+
+  onSearchChange(value: any): void {
+    this.page = 1;
+    this.nextPage = 1;
+    this.users.length = 0 ;
+    this.getUsers();
+  }
 }

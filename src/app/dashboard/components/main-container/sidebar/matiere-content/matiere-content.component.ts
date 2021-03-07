@@ -5,6 +5,8 @@ import {TokenStorageService} from '../../../../../_services/token-storage.servic
 import {UserService} from '../../../../../_services/user.service';
 import {MatDialog} from '@angular/material/dialog';
 import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
+import {Matiere} from '../../../../../models/matiere.model';
+import {MatiereService} from '../../../../../_services/matiere.service';
 
 @Component({
   selector: 'app-matiere-content',
@@ -14,13 +16,13 @@ import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
 export class MatiereContentComponent implements OnInit {
 
 
-  users: User[] = [];
+  matieres: Matiere[] = [];
 
   // Pour la pagination
   page: number;
   nextPage = 1;
   limit = 10;
-  countUsers: number;
+  countMatiers: number;
   public isAdmin: boolean;
 
 
@@ -30,7 +32,7 @@ export class MatiereContentComponent implements OnInit {
   constructor(
     private ngZone: NgZone,
     private tokenStorage: TokenStorageService,
-    private userService: UserService,
+    private matiereService: MatiereService,
     public dialog: MatDialog,
   ) { }
 
@@ -42,13 +44,13 @@ export class MatiereContentComponent implements OnInit {
 
   getUsers(nextPage: number = 1, limit: number = 10): void {
     if (!this.nextPage) { return; }
-    this.userService
-      .getUsersPagine(this.nextPage, this.limit)
+    this.matiereService
+      .getMatierePagine(this.nextPage, this.limit)
       .subscribe((data: any) => {
         this.page = data.page;
         this.nextPage = data.nextPage;
-        this.countUsers = data.totalDocs;
-        this.users = this.users.concat(data.docs);
+        this.countMatiers = data.totalDocs;
+        this.matieres = this.matieres.concat(data.docs);
       });
   }
 

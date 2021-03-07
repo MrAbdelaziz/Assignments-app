@@ -1,13 +1,13 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {DevoirService} from '../../../../../_services/devoir.service';
+import {DevoirService} from '../../../../../../_services/devoir.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Devoire} from '../../../../../models/devoire.model';
-import {DialogData} from '../../devoir-area/modal/modal.component';
-import {Assignement} from '../../../../../models/assignement.model';
-import {TokenStorageService} from '../../../../../_services/token-storage.service';
-import {AssignementService} from '../../../../../_services/assignement.service';
+import {Devoire} from '../../../../../../models/devoire.model';
+import {DialogData} from '../../../devoir-area/modal/modal.component';
+import {Assignement} from '../../../../../../models/assignement.model';
+import {TokenStorageService} from '../../../../../../_services/token-storage.service';
+import {AssignementService} from '../../../../../../_services/assignement.service';
 import {Router} from '@angular/router';
 
 @Component({

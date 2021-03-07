@@ -52,8 +52,8 @@ import { AddAssignementComponent } from './dashboard/components/main-container/d
 import { AddDevoirComponent } from './dashboard/components/main-container/devoir-area/add-devoir/add-devoir.component';
 import { ModalComponent } from './dashboard/components/main-container/devoir-area/modal/modal.component';
 import { ModalEditComponent } from './dashboard/components/main-container/devoir-area/modal-edit/modal-edit.component';
-import { ModalDevoirComponent } from './dashboard/components/main-container/sidebar/modal-devoir/modal-devoir.component';
-import { ModalActionsComponent } from './dashboard/components/main-container/sidebar/modal-actions/modal-actions.component';
+import { ModalDevoirComponent } from './dashboard/components/main-container/sidebar/assignement-content/modal-devoir/modal-devoir.component';
+import { ModalActionsComponent } from './dashboard/components/main-container/sidebar/assignement-content/modal-actions/modal-actions.component';
 import {UserContentComponent} from './dashboard/components/main-container/sidebar/user-content/user-content.component';
 
 
