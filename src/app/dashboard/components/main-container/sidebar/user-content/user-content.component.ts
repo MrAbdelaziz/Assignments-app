@@ -32,7 +32,8 @@ export class UserContentComponent implements OnInit {
     private tokenStorage: TokenStorageService,
     private userService: UserService,
     public dialog: MatDialog,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.groupe = '';
@@ -42,7 +43,9 @@ export class UserContentComponent implements OnInit {
 
 
   getUsers(nextPage: number = 1, limit: number = 10): void {
-    if (!this.nextPage) { return; }
+    if (!this.nextPage) {
+      return;
+    }
     this.userService
       .getUsersPagine(this.nextPage, this.limit, this.groupe)
       .subscribe((data: any) => {
@@ -94,7 +97,7 @@ export class UserContentComponent implements OnInit {
   onSearchChange(value: any): void {
     this.page = 1;
     this.nextPage = 1;
-    this.users.length = 0 ;
+    this.users.length = 0;
     this.getUsers();
   }
 }

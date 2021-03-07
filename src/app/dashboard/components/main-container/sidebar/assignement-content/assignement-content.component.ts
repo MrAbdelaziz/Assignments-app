@@ -34,7 +34,8 @@ export class AssignementContentComponent implements OnInit {
     private tokenStorage: TokenStorageService,
     private assignmentsService: AssignementService,
     public dialog: MatDialog,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.isAdmin = this.tokenStorage.getRole();
@@ -48,9 +49,11 @@ export class AssignementContentComponent implements OnInit {
 
 
   getAssignments(nextPage: number = 1, limit: number = 10): void {
-    if (!this.nextPage) { return; }
+    if (!this.nextPage) {
+      return;
+    }
     this.assignmentsService
-      .getAssignmentsPagine(this.nextPage, this.limit,  this.groupe)
+      .getAssignmentsPagine(this.nextPage, this.limit, this.groupe)
       .subscribe((data: any) => {
         this.page = data.page;
         this.nextPage = data.nextPage;
@@ -114,7 +117,7 @@ export class AssignementContentComponent implements OnInit {
   onSearchChange(value: any): void {
     this.page = 1;
     this.nextPage = 1;
-    this.assignments.length = 0 ;
+    this.assignments.length = 0;
     this.getAssignments();
   }
 }

@@ -16,7 +16,7 @@ const routes: Routes = [
     path: '',
     component: MainContainerComponent,
     children: [
-     // { path: '', redirectTo: 'home', pathMatch: 'full' },
+      // { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'assignement/:id',
         component: AddDevoirComponent
@@ -58,7 +58,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
-   {path: '**', redirectTo: 'login', pathMatch: 'full' },
+  {path: '**', redirectTo: 'login', pathMatch: 'full'},
 
 
 ];
@@ -68,4 +68,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

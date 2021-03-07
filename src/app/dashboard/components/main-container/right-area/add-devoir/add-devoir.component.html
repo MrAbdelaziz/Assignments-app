@@ -4,9 +4,9 @@
         <span class="caption">Ajouter Assignment</span>
     -->
 
-      <button mat-flat-button style="background-color: #009688;color: white"   (click)="openDialog()">
-        Rendre un devoir
-      </button>
+    <button mat-flat-button style="background-color: #009688;color: white" (click)="openDialog()">
+      Rendre un devoir
+    </button>
   </div>
 </section>
 
@@ -16,44 +16,44 @@
         <a  href="/assignement/{{a._id}}(path:assignements)">
     -->
 
-<!--
-    <a  routerLink="/assignement/{{a._id}}">
--->
+    <!--
+        <a  routerLink="/assignement/{{a._id}}">
+    -->
 
-      <section class="sidebar-content">
-        <div class="item">
-          <img src="https://avatars.dicebear.com/api/human/{{a.user.name }}.svg" alt="avatar" mat-card-avatar>
-          <span class="caption">{{a.user.name}}</span>
-        </div>
-
-        <div class="sidebar-content__room">
-          <span class="sidebar-content__room__name">{{a.title}}</span>
-          <span class="sidebar-content__room__last-msg">
-          {{a.remarques}}
-        </span>
-        </div>
-
-        <div class="note" *ngIf="!isAdmin && a.type != 'EN ATTENTE'">
-          {{a.note}}/20
+    <section class="sidebar-content">
+      <div class="item">
+        <img src="https://avatars.dicebear.com/api/human/{{a.user.name }}.svg" alt="avatar" mat-card-avatar>
+        <span class="caption">{{a.user.name}}</span>
       </div>
 
-        <div class="status" *ngIf="!isAdmin && a.type === 'EN ATTENTE'">
-          EN ATTENTE
+      <div class="sidebar-content__room">
+        <span class="sidebar-content__room__name">{{a.title}}</span>
+        <span class="sidebar-content__room__last-msg">
+          {{a.remarques}}
+        </span>
+      </div>
+
+      <div class="note" *ngIf="!isAdmin && a.type != 'EN ATTENTE'">
+        {{a.note}}/20
+      </div>
+
+      <div class="status" *ngIf="!isAdmin && a.type === 'EN ATTENTE'">
+        EN ATTENTE
+      </div>
+
+      <div class="status" *ngIf="isAdmin">
+        <div class="type" *ngIf="isAdmin">
+          {{a.type}}
         </div>
 
-         <div class="status" *ngIf="isAdmin">
-           <div class="type" *ngIf="isAdmin">
-             {{a.type}}
-           </div>
+        <button mat-flat-button style="background-color: #009688;color: white" (click)="modifDialog(a._id)">
+          Actions
+        </button>
+      </div>
+    </section>
 
-           <button mat-flat-button style="background-color: #009688;color: white"   (click)="modifDialog(a._id)">
-             Actions
-           </button>
-         </div>
-      </section>
-
-<!--
-    </a>
--->
+    <!--
+        </a>
+    -->
   </mat-list>
 </cdk-virtual-scroll-viewport>

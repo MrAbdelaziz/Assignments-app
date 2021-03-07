@@ -10,36 +10,36 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
- /* formGroup: FormGroup;
+  /* formGroup: FormGroup;
 
-  constructor(private authService: AuthService) { }
+   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-    this.initForm();
-  }
+   ngOnInit(): void {
+     this.initForm();
+   }
 
-  initForm(): void{
-      this.formGroup = new FormGroup(
-        {
-          email : new FormControl('', [Validators.required]),
-          password : new FormControl('', [Validators.required])
-        }
-      );
-  }
+   initForm(): void{
+       this.formGroup = new FormGroup(
+         {
+           email : new FormControl('', [Validators.required]),
+           password : new FormControl('', [Validators.required])
+         }
+       );
+   }
 
-  login(): void {
-    if (this.formGroup.valid) {
-      this.authService.login(this.formGroup.value).subscribe(
-        result => {
-          if (result.success){
-            console.log(result);
-            alert(result.message);
-          }
-        }
-      );
-    }
+   login(): void {
+     if (this.formGroup.valid) {
+       this.authService.login(this.formGroup.value).subscribe(
+         result => {
+           if (result.success){
+             console.log(result);
+             alert(result.message);
+           }
+         }
+       );
+     }
 
-  }*/
+   }*/
 
   form: any = {
     username: null,
@@ -51,7 +51,8 @@ export class LoginComponent implements OnInit {
   username: string;
   user: User;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private snackBar: MatSnackBar) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private snackBar: MatSnackBar) {
+  }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -69,7 +70,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, password } = this.form;
+    const {username, password} = this.form;
 
     this.authService.login(username, password).subscribe(
       data => {
@@ -78,7 +79,7 @@ export class LoginComponent implements OnInit {
         let role;
         if (data.data.role === 'ADMIN') {
           role = 'prof';
-        }else{
+        } else {
           role = 'student';
         }
 
@@ -98,12 +99,12 @@ export class LoginComponent implements OnInit {
 
       },
       err => {
-        this.errorMessage = err.error.errors  || err.error.message;
+        this.errorMessage = err.error.errors || err.error.message;
         this.snackBar.open(this.errorMessage, 'Close', {
           duration: 4000,
           horizontalPosition: 'end',
           verticalPosition: 'top',
-          panelClass: ['red-snackbar','login-snackbar']
+          panelClass: ['red-snackbar', 'login-snackbar']
         });
         this.isLoginFailed = true;
       }

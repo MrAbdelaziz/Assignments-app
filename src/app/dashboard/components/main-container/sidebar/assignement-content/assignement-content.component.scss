@@ -1,5 +1,5 @@
-.sidebar-content{
-  display:flex;
+.sidebar-content {
+  display: flex;
   align-items: center;
   padding: 20px;
   cursor: pointer;
@@ -30,9 +30,9 @@
   }
 }
 
-.content{
+.content {
   overflow-y: scroll;
-  flex:1;
+  flex: 1;
   height: 90%;
 }
 
@@ -43,11 +43,13 @@ div.item {
   text-align: center;
   width: 120px;
 }
+
 img {
   width: 50px;
   height: 50px;
   background-color: grey;
 }
+
 .caption {
   display: block;
 }
@@ -57,7 +59,7 @@ a {
   text-decoration: inherit; /* no underline */
 }
 
-.status{
+.status {
 
   block-size: auto;
   margin-left: auto;
@@ -99,29 +101,29 @@ a {
   &__search {
     background-color: #F6F6F6;
     border-bottom: 1px solid #ccc;
-    padding:10px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     position: relative;
 
     &__content {
-      width:fit-content;
-      position:relative;
+      width: fit-content;
+      position: relative;
 
       &__icon {
         position: absolute;
-        top:-5px;
-        left:0px;
-        color:#ccc;
+        top: -5px;
+        left: 0px;
+        color: #ccc;
         font-size: 14px;
       }
 
       &__input {
-        border:1px solid lightgray;
+        border: 1px solid lightgray;
         width: 380px;
         outline: none;
         border-radius: 20px;
-        padding:8px 20px 8px 30px;
+        padding: 8px 20px 8px 30px;
 
         &::placeholder {
           padding-left: 2.5rem;
@@ -136,6 +138,6 @@ a {
 
   &__content {
     overflow-y: scroll;
-    flex:1;
+    flex: 1;
   }
 }

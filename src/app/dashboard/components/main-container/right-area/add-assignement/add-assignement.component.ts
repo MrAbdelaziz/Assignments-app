@@ -16,14 +16,15 @@ export class AddAssignementComponent implements OnInit {
   groupe: any;
   private errorMessage: any;
 
-  constructor(private tokenStorage: TokenStorageService, private assignementService: AssignementService ,
-              private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private tokenStorage: TokenStorageService, private assignementService: AssignementService,
+              private router: Router, private snackBar: MatSnackBar) {
+  }
 
 
   ngOnInit(): void {
   }
 
-  onSubmit($event: MouseEvent): void{
+  onSubmit($event: MouseEvent): void {
     // evite la soumission standard du formulaire, qui génère un warning
     // dans la console...
     event.preventDefault();
@@ -43,10 +44,10 @@ export class AddAssignementComponent implements OnInit {
             panelClass: ['green-snackbar', 'login-snackbar'],
           });
           this.back();
-      },
+        },
         err => {
-        this.errorMessage = err.error.errors;
-        this.snackBar.open(this.errorMessage, 'Close', {
+          this.errorMessage = err.error.errors;
+          this.snackBar.open(this.errorMessage, 'Close', {
             duration: 4000,
             horizontalPosition: 'end',
             verticalPosition: 'top',

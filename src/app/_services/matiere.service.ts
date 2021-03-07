@@ -7,7 +7,9 @@ import {Observable} from 'rxjs';
 })
 export class MatiereService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
+
   url = 'https://assignement-mr-buffa-server.herokuapp.com/api/matieres';
 
   getMatierePagine(nextPage: number = 1, limit: number = 10): Observable<any> {

@@ -14,13 +14,11 @@ import {FormBuilder} from '@angular/forms';
 export class ModalActionsComponent implements OnInit {
 
 
-
   private errorMessage: any;
   assignement: any;
   des: any;
   title: any;
   groupe: any;
-
 
 
   constructor(
@@ -30,7 +28,8 @@ export class ModalActionsComponent implements OnInit {
     private router: Router,
     private _formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<ModalActionsComponent>,
-    @Inject(MAT_DIALOG_DATA) public id: number) {}
+    @Inject(MAT_DIALOG_DATA) public id: number) {
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -56,15 +55,13 @@ export class ModalActionsComponent implements OnInit {
   }
 
 
-
   onUpdateClick(): void {
 
     this.assignement.title = this.title;
     this.assignement.des = this.des;
     this.assignement.groupe = this.groupe;
 
-    this.assignementService.updateAssignement(this.assignement).
-    subscribe((reponse) => {
+    this.assignementService.updateAssignement(this.assignement).subscribe((reponse) => {
         this.snackBar.open('Devoir Rendu', 'Close', {
           duration: 4000,
           horizontalPosition: 'end',
@@ -89,8 +86,7 @@ export class ModalActionsComponent implements OnInit {
   }
 
   onDeleteClick(): void {
-    this.assignementService.deleteDevoir(this.id).
-    subscribe((reponse) => {
+    this.assignementService.deleteDevoir(this.id).subscribe((reponse) => {
         this.snackBar.open('Devoir bien supp', 'Close', {
           duration: 4000,
           horizontalPosition: 'end',

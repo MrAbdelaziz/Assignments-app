@@ -34,7 +34,8 @@ export class ModalDevoirComponent implements OnInit {
     private  devoirService: DevoirService,
     private _formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<ModalDevoirComponent>,
-    @Inject(MAT_DIALOG_DATA) public id: number) {}
+    @Inject(MAT_DIALOG_DATA) public id: number) {
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -54,7 +55,7 @@ export class ModalDevoirComponent implements OnInit {
   }
 
 
-  onSubmit($event: MouseEvent): void{
+  onSubmit($event: MouseEvent): void {
     event.preventDefault();
     const user = this.tokenStorage.getUser().id;
     const newAssignment = new Assignement(this.title, this.desc, this.groupe, user);

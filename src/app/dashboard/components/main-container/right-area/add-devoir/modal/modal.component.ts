@@ -31,7 +31,8 @@ export class ModalComponent implements OnInit {
     private  devoirService: DevoirService,
     // tslint:disable-next-line:variable-name
     private _formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+  }
 
 
   ngOnInit(): void {
@@ -44,9 +45,9 @@ export class ModalComponent implements OnInit {
   }
 
 
-  onSubmit($event: MouseEvent): void{
+  onSubmit($event: MouseEvent): void {
 
-   // on va utiliser directement le service
+    // on va utiliser directement le service
     const newDevoir = new Devoire();
     newDevoir.title = this.question;
     newDevoir.remarques = this.reponse;

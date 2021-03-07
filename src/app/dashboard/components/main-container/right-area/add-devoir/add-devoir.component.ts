@@ -30,19 +30,19 @@ export class AddDevoirComponent implements OnInit {
   public isAdmin: boolean;
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
 
-  constructor(    private ngZone: NgZone,
-                  private tokenStorage: TokenStorageService,
-                  private assignementService: AssignementService ,
-                  private devoirService: DevoirService,
-                  private router: Router,
-                  private route: ActivatedRoute,
-                  public dialog: MatDialog,
-                  private snackBar: MatSnackBar) {
-/*    router.events.subscribe((val) => {
-      if (val instanceof URLcha){
+  constructor(private ngZone: NgZone,
+              private tokenStorage: TokenStorageService,
+              private assignementService: AssignementService,
+              private devoirService: DevoirService,
+              private router: Router,
+              private route: ActivatedRoute,
+              public dialog: MatDialog,
+              private snackBar: MatSnackBar) {
+    /*    router.events.subscribe((val) => {
+          if (val instanceof URLcha){
 
-      }
-    });*/
+          }
+        });*/
 
     router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -73,7 +73,9 @@ export class AddDevoirComponent implements OnInit {
   getDeVOIRS(): void {
     console.log('devoirs');
     console.log(this.nextPage);
-    if (this.nextPage === null) { return; }
+    if (this.nextPage === null) {
+      return;
+    }
     this.devoirService
       .getDevoirsPagine(this.nextPage, this.limit, this.assignmentTransmis._id, this.tokenStorage.getUser().id, this.isAdmin)
       .subscribe((data: any) => {
@@ -84,7 +86,6 @@ export class AddDevoirComponent implements OnInit {
         this.devoirs = this.devoirs.concat(data.docs);
       });
   }
-
 
 
   // getDevoires(): void {
@@ -101,7 +102,7 @@ export class AddDevoirComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalComponent, {
       width: '500px',
-      data: { assid: this.assignmentTransmis._id, userid: this.tokenStorage.getUser().id}
+      data: {assid: this.assignmentTransmis._id, userid: this.tokenStorage.getUser().id}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -109,12 +110,12 @@ export class AddDevoirComponent implements OnInit {
     });
   }
 
-/*
-  async reload(url: string): Promise<boolean> {
-    await this.router.navigateByUrl('.', { skipLocationChange: true });
-    return this.router.navigateByUrl(url);
-  }
-*/
+  /*
+    async reload(url: string): Promise<boolean> {
+      await this.router.navigateByUrl('.', { skipLocationChange: true });
+      return this.router.navigateByUrl(url);
+    }
+  */
 
   ngAfterViewInit() {
     console.log('After view init');
@@ -146,7 +147,6 @@ export class AddDevoirComponent implements OnInit {
   }
 
   modifDialog(id: number): void {
-    //alert(id);
     const dialogRef = this.dialog.open(ModalEditComponent, {
       width: '500px',
       data: id

@@ -1,7 +1,6 @@
-
-<section class="sidebar-content" *ngIf="isAdmin" >
-  <div class="item" >
-    <button mat-flat-button style="background-color: #009688;color: white"   (click)="openDialog()">
+<section class="sidebar-content" *ngIf="isAdmin">
+  <div class="item">
+    <button mat-flat-button style="background-color: #009688;color: white" (click)="openDialog()">
       créer une matière
     </button>
   </div>
@@ -22,7 +21,7 @@
 
 
       <div class="status" *ngIf="isAdmin">
-        <button mat-flat-button style="background-color: #009688;color: white"   (click)="modifDialog(a._id)">
+        <button mat-flat-button style="background-color: #009688;color: white" (click)="modifDialog(a._id)">
           Actions
         </button>
       </div>

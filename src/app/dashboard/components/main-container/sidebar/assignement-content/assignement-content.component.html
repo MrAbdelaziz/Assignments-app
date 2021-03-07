@@ -1,5 +1,3 @@
-
-
 <!--  SIDEBAR-->
 <div class="sidebar__search" *ngIf="isAdmin">
   <div class="sidebar__search__content">
@@ -7,58 +5,57 @@
     <input class="sidebar__search__content__input"
            ngModel
            placeholder="Groupe"
-           type="text" [(ngModel)]="groupe" name="groupe"  (ngModelChange)="onSearchChange($event)">
+           type="text" [(ngModel)]="groupe" name="groupe" (ngModelChange)="onSearchChange($event)">
 
   </div>
 </div>
 
-<section class="sidebar-content" *ngIf="isAdmin" >
-  <div class="item" >
- <!--   <a routerLink="/addAssignement">
-      <button mat-flat-button style="background-color: #009688;color: white" >
-        créer  un devoir
-      </button>
-    </a>-->
+<section class="sidebar-content" *ngIf="isAdmin">
+  <div class="item">
+    <!--   <a routerLink="/addAssignement">
+         <button mat-flat-button style="background-color: #009688;color: white" >
+           créer  un devoir
+         </button>
+       </a>-->
 
 
-    <button mat-flat-button style="background-color: #009688;color: white"   (click)="openDialog()">
-      créer  un devoir
+    <button mat-flat-button style="background-color: #009688;color: white" (click)="openDialog()">
+      créer un devoir
     </button>
   </div>
 </section>
 <cdk-virtual-scroll-viewport itemSize="50" class="content" #scroller>
   <mat-list *cdkVirtualFor="let a of assignments">
-<!--
-    <a  href="/assignement/{{a._id}}(path:assignements)">
--->
+    <!--
+        <a  href="/assignement/{{a._id}}(path:assignements)">
+    -->
 
-    <a  routerLink="/assignement/{{a._id}}">
+    <a routerLink="/assignement/{{a._id}}">
 
-    <section class="sidebar-content">
-      <div class="item">
-        <img src="https://avatars.dicebear.com/api/human/{{a.user.name }}.svg" alt="avatar" mat-card-avatar>
-        <span class="caption">{{a.user.name}}</span>
-      </div>
+      <section class="sidebar-content">
+        <div class="item">
+          <img src="https://avatars.dicebear.com/api/human/{{a.user.name }}.svg" alt="avatar" mat-card-avatar>
+          <span class="caption">{{a.user.name}}</span>
+        </div>
 
-      <div class="sidebar-content__room">
-        <span class="sidebar-content__room__name">{{a.title}}</span>
-        <span class="sidebar-content__room__last-msg">
+        <div class="sidebar-content__room">
+          <span class="sidebar-content__room__name">{{a.title}}</span>
+          <span class="sidebar-content__room__last-msg">
           {{a.des}}
         </span>
 
-        <span class="sidebar-content__room__last-msg" style="font-style: italic;align-self: center;">
+          <span class="sidebar-content__room__last-msg" style="font-style: italic;align-self: center;">
          matiere: {{a.user.matiere.name}}
         </span>
-      </div>
+        </div>
 
 
-
-      <div class="status" *ngIf="isAdmin">
-        <button mat-flat-button style="background-color: #009688;color: white"   (click)="modifDialog(a._id)">
-          Actions
-        </button>
-      </div>
-    </section>
+        <div class="status" *ngIf="isAdmin">
+          <button mat-flat-button style="background-color: #009688;color: white" (click)="modifDialog(a._id)">
+            Actions
+          </button>
+        </div>
+      </section>
 
     </a>
   </mat-list>

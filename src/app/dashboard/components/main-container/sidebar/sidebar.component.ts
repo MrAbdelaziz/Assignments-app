@@ -11,11 +11,12 @@ export class SidebarComponent implements OnInit {
 
   user: User;
 
-  constructor( private tokenStorage: TokenStorageService) { }
+  constructor(private tokenStorage: TokenStorageService) {
+  }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
-      this.user =  this.tokenStorage.getUser();
+      this.user = this.tokenStorage.getUser();
     }
   }
 

@@ -5,14 +5,14 @@
     <input class="sidebar__search__content__input"
            ngModel
            placeholder="Groupe"
-           type="text" [(ngModel)]="groupe" name="groupe"  (ngModelChange)="onSearchChange($event)">
+           type="text" [(ngModel)]="groupe" name="groupe" (ngModelChange)="onSearchChange($event)">
 
   </div>
 </div>
 
-<section class="sidebar-content" *ngIf="isAdmin" >
-  <div class="item" >
-    <button mat-flat-button style="background-color: #009688;color: white"   (click)="openDialog()">
+<section class="sidebar-content" *ngIf="isAdmin">
+  <div class="item">
+    <button mat-flat-button style="background-color: #009688;color: white" (click)="openDialog()">
       créer un compte
     </button>
   </div>
@@ -25,31 +25,31 @@
     -->
 
 
-      <section class="sidebar-content">
-        <div class="item">
-          <img src="https://avatars.dicebear.com/api/human/{{a.name }}.svg" alt="avatar" mat-card-avatar>
-          <span class="caption">{{a.name}}</span>
-        </div>
+    <section class="sidebar-content">
+      <div class="item">
+        <img src="https://avatars.dicebear.com/api/human/{{a.name }}.svg" alt="avatar" mat-card-avatar>
+        <span class="caption">{{a.name}}</span>
+      </div>
 
-        <div class="sidebar-content__room">
+      <div class="sidebar-content__room">
 
 
-          <span class="sidebar-content__room__name" *ngIf="a.role === 'BASE'; then thenBlock else elseBlock"></span>
-          <ng-template #thenBlock>élève</ng-template>
-          <ng-template #elseBlock>Prof</ng-template>
+        <span class="sidebar-content__room__name" *ngIf="a.role === 'BASE'; then thenBlock else elseBlock"></span>
+        <ng-template #thenBlock>élève</ng-template>
+        <ng-template #elseBlock>Prof</ng-template>
 
-          <span class="sidebar-content__room__last-msg">
+        <span class="sidebar-content__room__last-msg">
           Groupe :{{a.groupe}}
          </span>
 
-        </div>
+      </div>
 
-        <div class="status" *ngIf="isAdmin">
-          <button mat-flat-button style="background-color: #009688;color: white"   (click)="modifDialog(a._id)">
-            Actions
-          </button>
-        </div>
-      </section>
+      <div class="status" *ngIf="isAdmin">
+        <button mat-flat-button style="background-color: #009688;color: white" (click)="modifDialog(a._id)">
+          Actions
+        </button>
+      </div>
+    </section>
 
   </mat-list>
 </cdk-virtual-scroll-viewport>

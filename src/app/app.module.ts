@@ -130,4 +130,5 @@ import {UserContentComponent} from './dashboard/components/main-container/sideba
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

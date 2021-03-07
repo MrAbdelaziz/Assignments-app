@@ -11,7 +11,6 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 export class ModalEditComponent implements OnInit {
 
 
-
   private errorMessage: any;
   note: any;
   devoir: any;
@@ -21,7 +20,8 @@ export class ModalEditComponent implements OnInit {
     private snackBar: MatSnackBar,
     private  devoirService: DevoirService,
     public dialogRef: MatDialogRef<ModalEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public id: number) {}
+    @Inject(MAT_DIALOG_DATA) public id: number) {
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -32,13 +32,13 @@ export class ModalEditComponent implements OnInit {
     this.devoirService
       .getDevoir(this.id)
       .subscribe((reponse) => {
-  /*        this.snackBar.open('Bien Ajouter', 'Close', {
-            duration: 4000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top',
-            panelClass: ['green-snackbar', 'login-snackbar'],
-          });
-          window.location.reload();*/
+          /*        this.snackBar.open('Bien Ajouter', 'Close', {
+                    duration: 4000,
+                    horizontalPosition: 'end',
+                    verticalPosition: 'top',
+                    panelClass: ['green-snackbar', 'login-snackbar'],
+                  });
+                  window.location.reload();*/
 
           this.devoir = reponse;
           console.log(this.devoir);
@@ -55,24 +55,22 @@ export class ModalEditComponent implements OnInit {
   }
 
 
-
   onRenduClick(): void {
 
     this.devoir.note = this.note;
     this.devoir.type = 'Rendu';
 
 
-    this.devoirService.updateDevoir(this.devoir).
-    subscribe((reponse) => {
-           this.snackBar.open('Devoir Rendu', 'Close', {
-                  duration: 4000,
-                  horizontalPosition: 'end',
-                  verticalPosition: 'top',
-                  panelClass: ['green-snackbar', 'login-snackbar'],
-                });
+    this.devoirService.updateDevoir(this.devoir).subscribe((reponse) => {
+        this.snackBar.open('Devoir Rendu', 'Close', {
+          duration: 4000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: ['green-snackbar', 'login-snackbar'],
+        });
 
-           this.devoir = reponse;
-           window.location.reload();
+        this.devoir = reponse;
+        window.location.reload();
 
       },
       err => {
@@ -84,15 +82,14 @@ export class ModalEditComponent implements OnInit {
           panelClass: ['red-snackbar', 'login-snackbar']
         });
       });
-   /* this.devoirService
-      .addDevoir(newDevoir)
-      .subscribe((reponse) => {}*/
+    /* this.devoirService
+       .addDevoir(newDevoir)
+       .subscribe((reponse) => {}*/
 
   }
 
   onDeleteClick(): void {
-    this.devoirService.deleteDevoir(this.id).
-    subscribe((reponse) => {
+    this.devoirService.deleteDevoir(this.id).subscribe((reponse) => {
         this.snackBar.open('Devoir bien supp', 'Close', {
           duration: 4000,
           horizontalPosition: 'end',

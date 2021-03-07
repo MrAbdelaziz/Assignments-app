@@ -1,5 +1,5 @@
-.sidebar-content{
-  display:flex;
+.sidebar-content {
+  display: flex;
   align-items: center;
   padding: 20px;
   cursor: pointer;
@@ -30,9 +30,9 @@
   }
 }
 
-.content{
+.content {
   overflow-y: scroll;
-  flex:1;
+  flex: 1;
   height: 90%;
 }
 
@@ -43,11 +43,13 @@ div.item {
   text-align: center;
   width: 120px;
 }
+
 img {
   width: 50px;
   height: 50px;
   background-color: grey;
 }
+
 .caption {
   display: block;
 }
@@ -56,7 +58,8 @@ a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
-.note{
+
+.note {
   width: 50px;
   height: 50px;
   block-size: auto;
@@ -64,7 +67,7 @@ a {
   font-size: x-large;
 }
 
-.status{
+.status {
 
   block-size: auto;
   margin-left: auto;

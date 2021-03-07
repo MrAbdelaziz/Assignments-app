@@ -8,7 +8,9 @@ import {Assignement} from '../models/assignement.model';
 })
 export class AssignementService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
+
   url = 'https://assignement-mr-buffa-server.herokuapp.com/api/assignements';
 
   getAssignmentsPagine(nextPage: number = 1, limit: number = 10, group: string): Observable<any> {
@@ -21,16 +23,16 @@ export class AssignementService {
     return this.http.post(this.url, newAssignment);
   }
 
-  getAssignment(id: number): any{
+  getAssignment(id: number): any {
     return this.http.get<any>(this.url + '/' + id);
   }
 
-  deleteDevoir(id: number): any{
+  deleteDevoir(id: number): any {
     return this.http.delete<any>(this.url + '/' + id);
   }
 
-  updateAssignement(assignement: any): any{
-    const  id = assignement._id;
+  updateAssignement(assignement: any): any {
+    const id = assignement._id;
     delete assignement.created_at;
     delete assignement._id;
     delete assignement.__v;

@@ -6,7 +6,7 @@ export class Assignement {
   user: string;
 
 
-  constructor( title: string, des: string, groupe: string, user: string) {
+  constructor(title: string, des: string, groupe: string, user: string) {
     this.title = title;
     this.des = des;
     this.groupe = groupe;

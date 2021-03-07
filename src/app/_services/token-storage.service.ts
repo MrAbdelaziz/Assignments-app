@@ -3,6 +3,7 @@ import {User} from '../models/user.model';
 
 const TOKEN_KEY = 'auth-token';
 const USER_AUTH = 'auth-user';
+
 /*const GROUPE_KEY = 'user-groupe';
 const ROLE_KEY = 'user-role';
 const USER_ID = 'user-id';*/
@@ -11,7 +12,8 @@ const USER_ID = 'user-id';*/
   providedIn: 'root'
 })
 export class TokenStorageService {
-  constructor() { }
+  constructor() {
+  }
 
   signOut(): void {
     window.sessionStorage.clear();
@@ -36,7 +38,7 @@ export class TokenStorageService {
   }
 
   public getUser(): any {
-    const user =  JSON.parse(window.sessionStorage.getItem(USER_AUTH));
+    const user = JSON.parse(window.sessionStorage.getItem(USER_AUTH));
     if (user) {
       return user;
     }
@@ -44,7 +46,7 @@ export class TokenStorageService {
   }
 
   public getRole(): any {
-    const user =  JSON.parse(window.sessionStorage.getItem(USER_AUTH));
+    const user = JSON.parse(window.sessionStorage.getItem(USER_AUTH));
     return user.role === 'ADMIN';
   }
 }

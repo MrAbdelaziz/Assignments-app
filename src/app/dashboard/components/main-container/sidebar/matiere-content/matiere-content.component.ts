@@ -32,7 +32,8 @@ export class MatiereContentComponent implements OnInit {
     private tokenStorage: TokenStorageService,
     private matiereService: MatiereService,
     public dialog: MatDialog,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.isAdmin = this.tokenStorage.getRole();
@@ -41,7 +42,9 @@ export class MatiereContentComponent implements OnInit {
 
 
   getUsers(nextPage: number = 1, limit: number = 10): void {
-    if (!this.nextPage) { return; }
+    if (!this.nextPage) {
+      return;
+    }
     this.matiereService
       .getMatierePagine(this.nextPage, this.limit)
       .subscribe((data: any) => {

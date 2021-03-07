@@ -1,4 +1,3 @@
-
 <form ngForm class="form" #assignmentForm style="text-align: center;">
 
   <h1 mat-dialog-title>assignement : {{id}}</h1>
@@ -7,12 +6,12 @@
 
     <mat-form-field>
       <mat-label>Title :</mat-label>
-      <input matInput    [(ngModel)]="title"   name="title" value="{{assignement.title}}">
+      <input matInput [(ngModel)]="title" name="title" value="{{assignement.title}}">
     </mat-form-field>
     <div></div>
     <mat-form-field>
       <mat-label>Description</mat-label>
-      <textarea matInput    [(ngModel)]="des"   name="des" value="{{assignement.des}}"
+      <textarea matInput [(ngModel)]="des" name="des" value="{{assignement.des}}"
       ></textarea>
     </mat-form-field>
     <div></div>
@@ -30,7 +29,7 @@
 
     <div mat-dialog-actions>
       <button mat-button (click)="onNoClick()">Close</button>
-      <button mat-button (click)="onUpdateClick()"  color="primary">Update</button>
+      <button mat-button (click)="onUpdateClick()" color="primary">Update</button>
       <button mat-button (click)="onDeleteClick()" color="warn">Delete</button>
     </div>
   </div>
