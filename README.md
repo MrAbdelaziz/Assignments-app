@@ -21,6 +21,33 @@ front-end https://assignement-app.herokuapp.com/
   </td>
 </tr>
 </table>
+# DEMO Users
+<table>
+  <tr>
+  <th>type</th>
+  <th>email</th>
+  <th>password</th>
+  </tr>
+<tr> 
+<td>
+Admin
+  </td>
+  <td>
+Admin
+  </td>
+  <td>
+Jordon_Kulas28@gmail.com
+  </td>
+    <td>
+      HCLGu9TlzbnAmXX
+  </td>
+</tr>
+  <tr>
+<td>
+  back-end https://assignement-mr-buffa-server.herokuapp.com/
+  </td>
+</tr>
+</table>
 
 
 
