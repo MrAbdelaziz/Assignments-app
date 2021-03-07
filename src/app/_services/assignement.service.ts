@@ -9,7 +9,7 @@ import {Assignement} from '../models/assignement.model';
 export class AssignementService {
 
   constructor(private http: HttpClient) { }
-  url = 'http://assignement-mr-buffa-server.herokuapp.com/api/assignements';
+  url = 'https://assignement-mr-buffa-server.herokuapp.com/api/assignements';
 
   getAssignmentsPagine(nextPage: number = 1, limit: number = 10, group: string): Observable<any> {
     const urlPagination = this.url + `?page=${nextPage}&limit=${limit}&groupe=${group}`;

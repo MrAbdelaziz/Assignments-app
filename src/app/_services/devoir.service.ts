@@ -10,7 +10,7 @@ import {Devoire} from '../models/devoire.model';
 export class DevoirService {
 
   constructor(private http: HttpClient) { }
-  url = 'http://assignement-mr-buffa-server.herokuapp.com/api/devoires';
+  url = 'https://assignement-mr-buffa-server.herokuapp.com/api/devoires';
 
   getDevoirsPagine(nextPage: number = 1, limit: number = 10, id: number, userid: number, isAdmin: boolean): Observable<any> {
     let urlPagination: string;

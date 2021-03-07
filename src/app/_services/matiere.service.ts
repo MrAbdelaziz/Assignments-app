@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 export class MatiereService {
 
   constructor(private http: HttpClient) { }
-  url = 'http://assignement-mr-buffa-server.herokuapp.com/api/matieres';
+  url = 'https://assignement-mr-buffa-server.herokuapp.com/api/matieres';
 
   getMatierePagine(nextPage: number = 1, limit: number = 10): Observable<any> {
     const urlPagination = this.url + `?page=${nextPage}&limit=${limit}`;
