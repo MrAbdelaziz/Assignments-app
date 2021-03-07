@@ -67,6 +67,7 @@ export class ModalComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['green-snackbar', 'login-snackbar'],
           });
+          window.location.reload();
         },
         err => {
           this.errorMessage = err.error.errors;

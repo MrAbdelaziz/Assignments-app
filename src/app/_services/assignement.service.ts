@@ -11,8 +11,8 @@ export class AssignementService {
   constructor(private http: HttpClient) { }
   url = 'http://assignement-mr-buffa-server.herokuapp.com/api/assignements';
 
-  getAssignmentsPagine(nextPage: number = 1, limit: number = 10): Observable<any> {
-    const urlPagination = this.url + `?page=${nextPage}&limit=${limit}`;
+  getAssignmentsPagine(nextPage: number = 1, limit: number = 10, group: string): Observable<any> {
+    const urlPagination = this.url + `?page=${nextPage}&limit=${limit}&groupe=${group}`;
     console.log('Requête paginée envoyée : ' + urlPagination);
     return this.http.get<any>(urlPagination);
   }

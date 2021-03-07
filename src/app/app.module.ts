@@ -63,6 +63,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { AddAssignementComponent } from './dashboard/components/main-container/devoir-area/add-assignement/add-assignement.component';
 import { AddDevoirComponent } from './dashboard/components/main-container/devoir-area/add-devoir/add-devoir.component';
 import { ModalComponent } from './dashboard/components/main-container/devoir-area/modal/modal.component';
+import { ModalEditComponent } from './dashboard/components/main-container/devoir-area/modal-edit/modal-edit.component';
+import { ModalDevoirComponent } from './dashboard/components/main-container/sidebar/modal-devoir/modal-devoir.component';
 
 
 
@@ -88,7 +90,9 @@ import { ModalComponent } from './dashboard/components/main-container/devoir-are
     MatiereContentComponent,
     AddAssignementComponent,
     AddDevoirComponent,
-    ModalComponent
+    ModalComponent,
+    ModalEditComponent,
+    ModalDevoirComponent
   ],
   imports: [
     BrowserModule,

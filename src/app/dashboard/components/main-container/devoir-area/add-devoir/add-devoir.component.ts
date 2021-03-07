@@ -9,6 +9,7 @@ import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
 import {ModalComponent} from '../modal/modal.component';
 import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
+import {ModalEditComponent} from '../modal-edit/modal-edit.component';
 
 @Component({
   selector: 'app-add-devoir',
@@ -26,6 +27,7 @@ export class AddDevoirComponent implements OnInit {
   nextPage = 1;
   limit = 10;
   countDevoirs: number;
+  public isAdmin: boolean;
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
 
   constructor(    private ngZone: NgZone,
@@ -54,7 +56,7 @@ export class AddDevoirComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.isAdmin = this.tokenStorage.getRole();
   }
 
   getAssignment(): void {
@@ -73,7 +75,7 @@ export class AddDevoirComponent implements OnInit {
     console.log(this.nextPage);
     if (this.nextPage === null) { return; }
     this.devoirService
-      .getDevoirsPagine(this.nextPage, this.limit, this.assignmentTransmis._id, this.tokenStorage.getUser().id)
+      .getDevoirsPagine(this.nextPage, this.limit, this.assignmentTransmis._id, this.tokenStorage.getUser().id, this.isAdmin)
       .subscribe((data: any) => {
         this.page = data.page;
         this.nextPage = data.nextPage;
@@ -99,13 +101,17 @@ export class AddDevoirComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalComponent, {
       width: '500px',
-      height: '400px',
       data: { assid: this.assignmentTransmis._id, userid: this.tokenStorage.getUser().id}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  async reload(url: string): Promise<boolean> {
+    await this.router.navigateByUrl('.', { skipLocationChange: true });
+    return this.router.navigateByUrl(url);
   }
 
   ngAfterViewInit() {
@@ -135,5 +141,17 @@ export class AddDevoirComponent implements OnInit {
           this.getDeVOIRS(); // déjà prêt car nextPage re-initialisé à chaque requête
         });
       });
+  }
+
+  modifDialog(id: number): void {
+    //alert(id);
+    const dialogRef = this.dialog.open(ModalEditComponent, {
+      width: '500px',
+      data: id
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

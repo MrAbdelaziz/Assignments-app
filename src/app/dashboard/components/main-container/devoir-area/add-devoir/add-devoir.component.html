@@ -5,7 +5,7 @@
     -->
 
       <button mat-flat-button style="background-color: #009688;color: white"   (click)="openDialog()">
-        Ajouter Devoir
+        Rendre un devoir
       </button>
   </div>
 </section>
@@ -16,7 +16,9 @@
         <a  href="/assignement/{{a._id}}(path:assignements)">
     -->
 
+<!--
     <a  routerLink="/assignement/{{a._id}}">
+-->
 
       <section class="sidebar-content">
         <div class="item">
@@ -31,15 +33,27 @@
         </span>
         </div>
 
-        <div class="note" *ngIf="a.type != 'EN ATTENTE'">
+        <div class="note" *ngIf="!isAdmin && a.type != 'EN ATTENTE'">
           {{a.note}}/20
       </div>
 
-        <div class="status" *ngIf="a.type === 'EN ATTENTE'">
+        <div class="status" *ngIf="!isAdmin && a.type === 'EN ATTENTE'">
           EN ATTENTE
         </div>
+
+         <div class="status" *ngIf="isAdmin">
+           <div class="type" *ngIf="isAdmin">
+             {{a.type}}
+           </div>
+
+           <button mat-flat-button style="background-color: #009688;color: white"   (click)="modifDialog(a._id)">
+             Actions
+           </button>
+         </div>
       </section>
 
+<!--
     </a>
+-->
   </mat-list>
 </cdk-virtual-scroll-viewport>
