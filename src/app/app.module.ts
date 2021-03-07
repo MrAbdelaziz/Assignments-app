@@ -2,10 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashLayoutComponent } from './dash-board/dash-layout.component';
-import {DashLoginComponent} from './dash-board/contents/dash-login/dash-login.component';
-import {DashHomeComponent} from './dash-board/contents/dash-home/dash-home.component';
-import {DashSidebarComponent} from './dash-board/layout/dash-sidebar/dash-sidebar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
@@ -42,11 +38,6 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { DashContentComponent } from './dash-board/layout/dash-content/dash-content.component';
-import { DashDevoirComponent } from './dash-board/layout/dash-content/dash-devoir/dash-devoir.component';
-import { DashAssignementComponent } from './dash-board/layout/dash-sidebar/dash-assignement/dash-assignement.component';
-import { DashNewDevoirComponent } from './dash-board/layout/dash-content/dash-new-devoir/dash-new-devoir.component';
-import { DashDefaultComponent } from './dash-board/layout/dash-content/dash-default/dash-default.component';
 import { LoginComponent } from './dashboard/components/login/login.component';
 import { MainContainerComponent } from './dashboard/components/main-container/main-container.component';
 import { SidebarComponent } from './dashboard/components/main-container/sidebar/sidebar.component';
@@ -71,15 +62,6 @@ import { ModalDevoirComponent } from './dashboard/components/main-container/side
 @NgModule({
   declarations: [
     AppComponent,
-    DashLayoutComponent,
-    DashLoginComponent,
-    DashHomeComponent,
-    DashSidebarComponent,
-    DashContentComponent,
-    DashDevoirComponent,
-    DashAssignementComponent,
-    DashNewDevoirComponent,
-    DashDefaultComponent,
     LoginComponent,
     MainContainerComponent,
     SidebarComponent,
