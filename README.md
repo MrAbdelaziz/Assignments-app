@@ -5,7 +5,7 @@
 <table>
 <tr>
 <td>
-Dans le projet, le but est de développer une application pour gérer les assignments
+le but de ce projet est de développer une application pour gérer les assignments
 </td>
 </tr>
 </table>
