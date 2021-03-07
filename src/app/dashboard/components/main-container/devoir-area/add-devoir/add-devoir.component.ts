@@ -109,10 +109,12 @@ export class AddDevoirComponent implements OnInit {
     });
   }
 
+/*
   async reload(url: string): Promise<boolean> {
     await this.router.navigateByUrl('.', { skipLocationChange: true });
     return this.router.navigateByUrl(url);
   }
+*/
 
   ngAfterViewInit() {
     console.log('After view init');

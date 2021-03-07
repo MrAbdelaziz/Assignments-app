@@ -1,0 +1,40 @@
+
+<form ngForm class="form" #assignmentForm style="text-align: center;">
+
+  <h1 mat-dialog-title>Devoir : {{id}}</h1>
+  <div mat-dialog-content style="display: contents;">
+
+
+    <mat-form-field>
+      <mat-label>Question :</mat-label>
+      <input matInput    disabled value="{{devoir.title}}">
+    </mat-form-field>
+    <div></div>
+    <mat-form-field>
+      <mat-label>Réponse</mat-label>
+      <textarea matInput disabled value="{{devoir.remarques}}"
+                ></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field *ngIf="devoir.type === 'EN ATTENTE'">
+      <mat-label>Note :</mat-label>
+      <input matInput value="10"
+                type="number" max="20" min="0" [(ngModel)]="note"  name="note">
+    </mat-form-field>
+
+    <mat-form-field  *ngIf="devoir.type != 'EN ATTENTE'">
+      <mat-label>Note</mat-label>
+      <input matInput disabled value="{{devoir.note}}/20"
+                >
+    </mat-form-field>
+
+
+
+   <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Close</button>
+     <button mat-button (click)="onRenduClick()"  *ngIf="devoir.type === 'EN ATTENTE'" color="primary">Rendu</button>
+     <button mat-button (click)="onDeleteClick()" color="warn">Delete</button>
+    </div>
+  </div>
+
+</form>

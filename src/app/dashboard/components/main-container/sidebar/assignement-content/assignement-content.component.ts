@@ -3,6 +3,9 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { filter, map, pairwise, tap, throttleTime } from 'rxjs/operators';import {Assignement} from '../../../../../models/assignement.model';
 import {AssignementService} from '../../../../../_services/assignement.service';
 import {TokenStorageService} from '../../../../../_services/token-storage.service';
+import {ModalComponent} from '../../devoir-area/modal/modal.component';
+import {MatDialog} from '@angular/material/dialog';
+import {ModalDevoirComponent} from '../modal-devoir/modal-devoir.component';
 
 @Component({
   selector: 'app-assignement-content',
@@ -30,6 +33,7 @@ export class AssignementContentComponent implements OnInit {
     private ngZone: NgZone,
     private tokenStorage: TokenStorageService,
     private assignmentsService: AssignementService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -81,4 +85,14 @@ export class AssignementContentComponent implements OnInit {
       });
   }
 
+  openDialog():void {
+    const dialogRef = this.dialog.open(ModalDevoirComponent, {
+      width: '500px',
+      data: this.tokenStorage.getUser().id
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }

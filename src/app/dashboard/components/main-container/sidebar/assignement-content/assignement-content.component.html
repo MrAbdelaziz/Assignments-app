@@ -3,11 +3,16 @@
 
 <section class="sidebar-content" *ngIf="isAdmin" >
   <div class="item" >
-    <a routerLink="/addAssignement">
+ <!--   <a routerLink="/addAssignement">
       <button mat-flat-button style="background-color: #009688;color: white" >
         créer  un devoir
       </button>
-    </a>
+    </a>-->
+
+
+    <button mat-flat-button style="background-color: #009688;color: white"   (click)="openDialog()">
+      créer  un devoir
+    </button>
   </div>
 </section>
 <cdk-virtual-scroll-viewport itemSize="50" class="content" #scroller>
