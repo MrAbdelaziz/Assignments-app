@@ -1,10 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Assignement} from '../../../../../models/assignement.model';
-import {DevoirService} from '../../../../../_services/devoir.service';
+import {DevoirService} from '../../../../../../_services/devoir.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {Devoire} from '../../../../../models/devoire.model';
+import {Devoire} from '../../../../../../models/devoire.model';
 
 export interface DialogData {
   assid: string;
@@ -30,13 +29,10 @@ export class ModalComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private  devoirService: DevoirService,
+    // tslint:disable-next-line:variable-name
     private _formBuilder: FormBuilder,
-    public dialogRef: MatDialogRef<ModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
@@ -52,12 +48,12 @@ export class ModalComponent implements OnInit {
 
    // on va utiliser directement le service
     const newDevoir = new Devoire();
-      newDevoir.title = this.question;
-      newDevoir.remarques = this.reponse;
-      newDevoir.assignment = this.data.assid;
-      newDevoir.user = this.data.userid;
-      newDevoir.type = 'EN ATTENTE';
-      newDevoir.note = 0;
+    newDevoir.title = this.question;
+    newDevoir.remarques = this.reponse;
+    newDevoir.assignment = this.data.assid;
+    newDevoir.user = this.data.userid;
+    newDevoir.type = 'EN ATTENTE';
+    newDevoir.note = 0;
     this.devoirService
       .addDevoir(newDevoir)
       .subscribe((reponse) => {

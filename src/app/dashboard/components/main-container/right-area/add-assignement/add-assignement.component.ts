@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Assignement} from '../../../../../models/assignement.model';
 import {TokenStorageService} from '../../../../../_services/token-storage.service';
 import {AssignementService} from '../../../../../_services/assignement.service';

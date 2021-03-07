@@ -1,9 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 
 
 // Angular Material Components
@@ -38,24 +37,23 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { LoginComponent } from './dashboard/components/login/login.component';
-import { MainContainerComponent } from './dashboard/components/main-container/main-container.component';
-import { SidebarComponent } from './dashboard/components/main-container/sidebar/sidebar.component';
-import { DevoirAreaComponent } from './dashboard/components/main-container/devoir-area/devoir-area.component';
-import { DevoirDefaultPageComponent } from './dashboard/components/main-container/devoir-area/devoir-default-page/devoir-default-page.component';
+import {LoginComponent} from './dashboard/components/login/login.component';
+import {MainContainerComponent} from './dashboard/components/main-container/main-container.component';
+import {SidebarComponent} from './dashboard/components/main-container/sidebar/sidebar.component';
+import {DevoirAreaComponent} from './dashboard/components/main-container/right-area/devoir-area.component';
+import {DevoirDefaultPageComponent} from './dashboard/components/main-container/right-area/devoir-default-page/devoir-default-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import {authInterceptorProviders} from './_helpers/auth.interceptor';
-import { AssignementContentComponent } from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
-import { MatiereContentComponent } from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
+import {AssignementContentComponent} from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
+import {MatiereContentComponent} from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import { AddAssignementComponent } from './dashboard/components/main-container/devoir-area/add-assignement/add-assignement.component';
-import { AddDevoirComponent } from './dashboard/components/main-container/devoir-area/add-devoir/add-devoir.component';
-import { ModalComponent } from './dashboard/components/main-container/devoir-area/modal/modal.component';
-import { ModalEditComponent } from './dashboard/components/main-container/devoir-area/modal-edit/modal-edit.component';
-import { ModalDevoirComponent } from './dashboard/components/main-container/sidebar/assignement-content/modal-devoir/modal-devoir.component';
-import { ModalActionsComponent } from './dashboard/components/main-container/sidebar/assignement-content/modal-actions/modal-actions.component';
+import {AddAssignementComponent} from './dashboard/components/main-container/right-area/add-assignement/add-assignement.component';
+import {AddDevoirComponent} from './dashboard/components/main-container/right-area/add-devoir/add-devoir.component';
+import {ModalComponent} from './dashboard/components/main-container/right-area/add-devoir/modal/modal.component';
+import {ModalEditComponent} from './dashboard/components/main-container/right-area/add-devoir/modal-edit/modal-edit.component';
+import {ModalDevoirComponent} from './dashboard/components/main-container/sidebar/assignement-content/modal-devoir/modal-devoir.component';
+import {ModalActionsComponent} from './dashboard/components/main-container/sidebar/assignement-content/modal-actions/modal-actions.component';
 import {UserContentComponent} from './dashboard/components/main-container/sidebar/user-content/user-content.component';
-
 
 
 @NgModule({

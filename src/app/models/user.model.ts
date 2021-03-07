@@ -1,5 +1,3 @@
-import {Matiere} from './matiere.model';
-
 export class User {
 
   id: string;

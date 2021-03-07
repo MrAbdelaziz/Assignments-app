@@ -1,8 +1,6 @@
 import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
-import {User} from '../../../../../models/user.model';
 import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
 import {TokenStorageService} from '../../../../../_services/token-storage.service';
-import {UserService} from '../../../../../_services/user.service';
 import {MatDialog} from '@angular/material/dialog';
 import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
 import {Matiere} from '../../../../../models/matiere.model';

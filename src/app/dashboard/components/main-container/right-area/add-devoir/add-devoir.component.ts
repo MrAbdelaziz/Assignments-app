@@ -7,9 +7,9 @@ import {DevoirService} from '../../../../../_services/devoir.service';
 import {Devoire} from '../../../../../models/devoire.model';
 import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
-import {ModalComponent} from '../modal/modal.component';
+import {ModalComponent} from './modal/modal.component';
 import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
-import {ModalEditComponent} from '../modal-edit/modal-edit.component';
+import {ModalEditComponent} from './modal-edit/modal-edit.component';
 
 @Component({
   selector: 'app-add-devoir',
