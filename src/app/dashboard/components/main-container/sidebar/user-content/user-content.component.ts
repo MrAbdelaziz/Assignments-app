@@ -1,18 +1,19 @@
 import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
-import {User} from '../../../../../models/user.model';
+import {Assignement} from '../../../../../models/assignement.model';
 import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
 import {TokenStorageService} from '../../../../../_services/token-storage.service';
-import {UserService} from '../../../../../_services/user.service';
+import {AssignementService} from '../../../../../_services/assignement.service';
 import {MatDialog} from '@angular/material/dialog';
 import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
+import {User} from '../../../../../models/user.model';
+import {UserService} from '../../../../../_services/user.service';
 
 @Component({
-  selector: 'app-matiere-content',
-  templateUrl: './matiere-content.component.html',
-  styleUrls: ['./matiere-content.component.scss']
+  selector: 'app-user-content',
+  templateUrl: './user-content.component.html',
+  styleUrls: ['./user-content.component.scss']
 })
-export class MatiereContentComponent implements OnInit {
-
+export class UserContentComponent implements OnInit {
 
   users: User[] = [];
 
@@ -88,6 +89,5 @@ export class MatiereContentComponent implements OnInit {
   modifDialog(id: any): void {
     // TODO  new modal (user actions)
   }
-
 
 }

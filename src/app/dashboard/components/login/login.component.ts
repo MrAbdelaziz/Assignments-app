@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
 
       },
       err => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error.errors  || err.error.message;
         this.snackBar.open(this.errorMessage, 'Close', {
           duration: 4000,
           horizontalPosition: 'end',

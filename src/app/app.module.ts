@@ -43,12 +43,9 @@ import { MainContainerComponent } from './dashboard/components/main-container/ma
 import { SidebarComponent } from './dashboard/components/main-container/sidebar/sidebar.component';
 import { DevoirAreaComponent } from './dashboard/components/main-container/devoir-area/devoir-area.component';
 import { DevoirDefaultPageComponent } from './dashboard/components/main-container/devoir-area/devoir-default-page/devoir-default-page.component';
-
-import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import {HttpClientModule} from '@angular/common/http';
 import {authInterceptorProviders} from './_helpers/auth.interceptor';
 import { AssignementContentComponent } from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
-import { StudentContentComponent } from './dashboard/components/main-container/sidebar/student-content/student-content.component';
 import { MatiereContentComponent } from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { AddAssignementComponent } from './dashboard/components/main-container/devoir-area/add-assignement/add-assignement.component';
@@ -57,6 +54,7 @@ import { ModalComponent } from './dashboard/components/main-container/devoir-are
 import { ModalEditComponent } from './dashboard/components/main-container/devoir-area/modal-edit/modal-edit.component';
 import { ModalDevoirComponent } from './dashboard/components/main-container/sidebar/modal-devoir/modal-devoir.component';
 import { ModalActionsComponent } from './dashboard/components/main-container/sidebar/modal-actions/modal-actions.component';
+import {UserContentComponent} from './dashboard/components/main-container/sidebar/user-content/user-content.component';
 
 
 
@@ -69,14 +67,14 @@ import { ModalActionsComponent } from './dashboard/components/main-container/sid
     DevoirAreaComponent,
     DevoirDefaultPageComponent,
     AssignementContentComponent,
-    StudentContentComponent,
     MatiereContentComponent,
     AddAssignementComponent,
     AddDevoirComponent,
     ModalComponent,
     ModalEditComponent,
     ModalDevoirComponent,
-    ModalActionsComponent
+    ModalActionsComponent,
+    UserContentComponent
   ],
   imports: [
     BrowserModule,

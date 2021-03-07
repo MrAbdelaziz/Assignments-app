@@ -5,10 +5,10 @@ import {DevoirDefaultPageComponent} from './dashboard/components/main-container/
 import {LoginComponent} from './dashboard/components/login/login.component';
 import {UserGuard} from './guards/user.guard';
 import {AssignementContentComponent} from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
-import {StudentContentComponent} from './dashboard/components/main-container/sidebar/student-content/student-content.component';
 import {MatiereContentComponent} from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
 import {AddAssignementComponent} from './dashboard/components/main-container/devoir-area/add-assignement/add-assignement.component';
 import {AddDevoirComponent} from './dashboard/components/main-container/devoir-area/add-devoir/add-devoir.component';
+import {UserContentComponent} from './dashboard/components/main-container/sidebar/user-content/user-content.component';
 
 
 const routes: Routes = [
@@ -36,11 +36,11 @@ const routes: Routes = [
       },
       {
         path: 'etudiants',
-        component: StudentContentComponent,
+        component: UserContentComponent,
       },
       {
         path: 'etudiants',
-        component: StudentContentComponent,
+        component: UserContentComponent,
         outlet: 'path'
       },
       {
