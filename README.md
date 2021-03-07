@@ -72,6 +72,12 @@ Jesus.Zieme@gmail.com
   </tr>
  </table>
 
+
+#  Configure your environment
+
+Go src/environment/environment.ts, and set your API base url .
+
+
 # AssignementsApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
