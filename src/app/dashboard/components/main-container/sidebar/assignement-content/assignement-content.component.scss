@@ -20,7 +20,7 @@
     }
 
     span.sidebar-content__room__name {
-      font-size: 1.18rem;
+      font-size: 1.0rem;
       align-self: flex-start;
     }
 
@@ -55,4 +55,10 @@ img {
 a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
+}
+
+.status{
+
+  block-size: auto;
+  margin-left: auto;
 }

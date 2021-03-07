@@ -25,4 +25,15 @@ export class AssignementService {
     return this.http.get<any>(this.url + '/' + id);
   }
 
+  deleteDevoir(id: number): any{
+    return this.http.delete<any>(this.url + '/' + id);
+  }
+
+  updateAssignement(assignement: any): any{
+    const  id = assignement._id;
+    delete assignement.created_at;
+    delete assignement._id;
+    delete assignement.__v;
+    return this.http.put(this.url + `/${id}`, assignement);
+  }
 }

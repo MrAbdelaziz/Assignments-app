@@ -6,6 +6,7 @@ import {TokenStorageService} from '../../../../../_services/token-storage.servic
 import {ModalComponent} from '../../devoir-area/modal/modal.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ModalDevoirComponent} from '../modal-devoir/modal-devoir.component';
+import {ModalActionsComponent} from '../modal-actions/modal-actions.component';
 
 @Component({
   selector: 'app-assignement-content',
@@ -85,10 +86,21 @@ export class AssignementContentComponent implements OnInit {
       });
   }
 
-  openDialog():void {
+  openDialog(): void {
     const dialogRef = this.dialog.open(ModalDevoirComponent, {
       width: '500px',
       data: this.tokenStorage.getUser().id
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  modifDialog(id: any): void {
+    const dialogRef = this.dialog.open(ModalActionsComponent, {
+      width: '500px',
+      data: id
     });
 
     dialogRef.afterClosed().subscribe(result => {

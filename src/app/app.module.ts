@@ -56,6 +56,7 @@ import { AddDevoirComponent } from './dashboard/components/main-container/devoir
 import { ModalComponent } from './dashboard/components/main-container/devoir-area/modal/modal.component';
 import { ModalEditComponent } from './dashboard/components/main-container/devoir-area/modal-edit/modal-edit.component';
 import { ModalDevoirComponent } from './dashboard/components/main-container/sidebar/modal-devoir/modal-devoir.component';
+import { ModalActionsComponent } from './dashboard/components/main-container/sidebar/modal-actions/modal-actions.component';
 
 
 
@@ -74,7 +75,8 @@ import { ModalDevoirComponent } from './dashboard/components/main-container/side
     AddDevoirComponent,
     ModalComponent,
     ModalEditComponent,
-    ModalDevoirComponent
+    ModalDevoirComponent,
+    ModalActionsComponent
   ],
   imports: [
     BrowserModule,

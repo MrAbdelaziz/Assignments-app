@@ -35,6 +35,12 @@
           {{a.des}}
         </span>
       </div>
+
+      <div class="status" *ngIf="isAdmin">
+        <button mat-flat-button style="background-color: #009688;color: white"   (click)="modifDialog(a._id)">
+          Actions
+        </button>
+      </div>
     </section>
 
     </a>
