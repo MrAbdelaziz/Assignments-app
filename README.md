@@ -3,7 +3,7 @@
 <table>
 <tr>
 <td>
-Dans le projet, le but est de développer un site (style LeBonCoin) pour les petites annonces
+Dans le projet, le but est de développer une application pour gérer les assignments
 </td>
 </tr>
 </table>
