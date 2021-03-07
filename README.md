@@ -9,8 +9,8 @@ Dans le projet, le but est de développer une application pour gérer les assign
 </table>
 
 # DEMO 
-## front-end https://assignement-app.herokuapp.com/
-## back-end https://assignement-mr-buffa-server.herokuapp.com/
+front-end https://assignement-app.herokuapp.com/
+back-end https://assignement-mr-buffa-server.herokuapp.com/
 
 ## Team
 <table>
