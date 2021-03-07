@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {baseUrl} from '../../environments/environment';
 
-const AUTH_API = 'https://assignement-mr-buffa-server.herokuapp.com/api/';
+const AUTH_API = baseUrl ;
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
