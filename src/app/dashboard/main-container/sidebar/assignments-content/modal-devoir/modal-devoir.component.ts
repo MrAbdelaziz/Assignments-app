@@ -32,7 +32,7 @@ export class ModalDevoirComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private  devoirService: DevoirService,
-    private _formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<ModalDevoirComponent>,
     @Inject(MAT_DIALOG_DATA) public id: number) {
   }
@@ -42,14 +42,14 @@ export class ModalDevoirComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.firstFormGroup = this._formBuilder.group({
+    this.firstFormGroup = this.formBuilder.group({
       title: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
+    this.secondFormGroup = this.formBuilder.group({
       desc: ['', Validators.required]
     });
 
-    this.thirdFormGroup = this._formBuilder.group({
+    this.thirdFormGroup = this.formBuilder.group({
       groupe: ['', Validators.required]
     });
   }
@@ -72,7 +72,7 @@ export class ModalDevoirComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['green-snackbar', 'login-snackbar'],
           });
-          window.location.reload();
+          window.location.reload(); // TODO slove reload prb
         },
         err => {
           this.errorMessage = err.error.errors;
