@@ -1,6 +1,6 @@
 # ![assignements-app](https://github.com/MrAbdelaziz/assignements-app/blob/master/screens/home.png?raw=true)
 
-# Assignements App
+# Assignments App
 
 <table>
 <tr>
