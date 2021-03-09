@@ -47,7 +47,6 @@ import {authInterceptorProviders} from './_helpers/auth.interceptor';
 import {AssignementContentComponent} from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
 import {MatiereContentComponent} from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import {AddAssignementComponent} from './dashboard/components/main-container/right-area/add-assignement/add-assignement.component';
 import {AddDevoirComponent} from './dashboard/components/main-container/right-area/add-devoir/add-devoir.component';
 import {ModalComponent} from './dashboard/components/main-container/right-area/add-devoir/modal/modal.component';
 import {ModalEditComponent} from './dashboard/components/main-container/right-area/add-devoir/modal-edit/modal-edit.component';
@@ -66,7 +65,6 @@ import {UserContentComponent} from './dashboard/components/main-container/sideba
     DevoirDefaultPageComponent,
     AssignementContentComponent,
     MatiereContentComponent,
-    AddAssignementComponent,
     AddDevoirComponent,
     ModalComponent,
     ModalEditComponent,

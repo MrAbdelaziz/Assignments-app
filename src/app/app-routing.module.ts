@@ -6,7 +6,6 @@ import {LoginComponent} from './dashboard/components/login/login.component';
 import {UserGuard} from './guards/user.guard';
 import {AssignementContentComponent} from './dashboard/components/main-container/sidebar/assignement-content/assignement-content.component';
 import {MatiereContentComponent} from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
-import {AddAssignementComponent} from './dashboard/components/main-container/right-area/add-assignement/add-assignement.component';
 import {AddDevoirComponent} from './dashboard/components/main-container/right-area/add-devoir/add-devoir.component';
 import {UserContentComponent} from './dashboard/components/main-container/sidebar/user-content/user-content.component';
 
@@ -24,10 +23,6 @@ const routes: Routes = [
       {
         path: 'home',
         component: DevoirDefaultPageComponent,
-      },
-      {
-        path: 'addAssignement',
-        component: AddAssignementComponent,
       },
       {
         path: 'assignements',

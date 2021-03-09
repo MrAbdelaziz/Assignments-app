@@ -1,11 +1,11 @@
 # ![assignements-app](https://github.com/MrAbdelaziz/assignements-app/blob/master/screens/home.png?raw=true)
 
-# Assignements App
+# Assignments App
 
 <table>
 <tr>
 <td>
-Dans le projet, le but est de développer une application pour gérer les assignments
+le but de ce projet est de développer une application pour gérer les assignments
 </td>
 </tr>
 </table>
@@ -77,9 +77,7 @@ Jesus.Zieme@gmail.com
 
 Go src/environment/environment.ts, and set your API base url .
 
-
-# AssignementsApp
-
+## Dev
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
 ## Development server
