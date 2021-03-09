@@ -37,22 +37,26 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {LoginComponent} from './dashboard/components/login/login.component';
-import {MainContainerComponent} from './dashboard/components/main-container/main-container.component';
-import {SidebarComponent} from './dashboard/components/main-container/sidebar/sidebar.component';
-import {DevoirAreaComponent} from './dashboard/components/main-container/content/devoir-area.component';
-import {DevoirDefaultPageComponent} from './dashboard/components/main-container/content/devoir-default-page/devoir-default-page.component';
+import {LoginComponent} from './dashboard/login/login.component';
+import {MainContainerComponent} from './dashboard/main-container/main-container.component';
+import {SidebarComponent} from './dashboard/main-container/sidebar/sidebar.component';
+import {DevoirAreaComponent} from './dashboard/main-container/content/devoir-area.component';
+import {DevoirDefaultPageComponent} from './dashboard/main-container/content/devoir-default-page/devoir-default-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import {authInterceptorProviders} from './_helpers/auth.interceptor';
-import {AssignementContentComponent} from './dashboard/components/main-container/sidebar/assignments-content/assignement-content.component';
-import {MatiereContentComponent} from './dashboard/components/main-container/sidebar/matiere-content/matiere-content.component';
+import {AssignementContentComponent} from './dashboard/main-container/sidebar/assignments-content/assignement-content.component';
+import {MatiereContentComponent} from './dashboard/main-container/sidebar/matiere-content/matiere-content.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import {AddDevoirComponent} from './dashboard/components/main-container/content/devoir-page/add-devoir.component';
-import {ModalComponent} from './dashboard/components/main-container/content/devoir-page/add-modal/modal.component';
-import {ModalEditComponent} from './dashboard/components/main-container/content/devoir-page/edit-modal/modal-edit.component';
-import {ModalDevoirComponent} from './dashboard/components/main-container/sidebar/assignments-content/modal-devoir/modal-devoir.component';
-import {ModalActionsComponent} from './dashboard/components/main-container/sidebar/assignments-content/modal-actions/modal-actions.component';
-import {UserContentComponent} from './dashboard/components/main-container/sidebar/user-content/user-content.component';
+import {AddDevoirComponent} from './dashboard/main-container/content/devoir-page/add-devoir.component';
+import {ModalComponent} from './dashboard/main-container/content/devoir-page/add-modal/modal.component';
+import {ModalEditComponent} from './dashboard/main-container/content/devoir-page/edit-modal/modal-edit.component';
+import {ModalDevoirComponent} from './dashboard/main-container/sidebar/assignments-content/modal-devoir/modal-devoir.component';
+import {ModalActionsComponent} from './dashboard/main-container/sidebar/assignments-content/modal-actions/modal-actions.component';
+import {UserContentComponent} from './dashboard/main-container/sidebar/user-content/user-content.component';
+import { MatiereActionsModalComponent } from './dashboard/main-container/sidebar/matiere-content/matiere-actions-modal/matiere-actions-modal.component';
+import { MatiereAddModalComponent } from './dashboard/main-container/sidebar/matiere-content/matiere-add-modal/matiere-add-modal.component';
+import { UserAddModalComponent } from './dashboard/main-container/sidebar/user-content/user-add-modal/user-add-modal.component';
+import { UserActionsModalComponent } from './dashboard/main-container/sidebar/user-content/user-actions-modal/user-actions-modal.component';
 
 
 @NgModule({
@@ -70,7 +74,11 @@ import {UserContentComponent} from './dashboard/components/main-container/sideba
     ModalEditComponent,
     ModalDevoirComponent,
     ModalActionsComponent,
-    UserContentComponent
+    UserContentComponent,
+    MatiereActionsModalComponent,
+    MatiereAddModalComponent,
+    UserAddModalComponent,
+    UserActionsModalComponent
   ],
   imports: [
     BrowserModule,

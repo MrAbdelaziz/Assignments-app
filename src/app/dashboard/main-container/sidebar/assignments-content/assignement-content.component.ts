@@ -1,9 +1,9 @@
 import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
 import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
 import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
-import {Assignement} from '../../../../../models/assignement.model';
-import {AssignementService} from '../../../../../_services/assignement.service';
-import {TokenStorageService} from '../../../../../_services/token-storage.service';
+import {Assignement} from '../../../../models/assignement.model';
+import {AssignementService} from '../../../../_services/assignement.service';
+import {TokenStorageService} from '../../../../_services/token-storage.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ModalDevoirComponent} from './modal-devoir/modal-devoir.component';
 import {ModalActionsComponent} from './modal-actions/modal-actions.component';

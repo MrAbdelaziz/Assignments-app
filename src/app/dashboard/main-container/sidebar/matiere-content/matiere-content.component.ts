@@ -1,42 +1,41 @@
 import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
 import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
-import {TokenStorageService} from '../../../../../_services/token-storage.service';
+import {TokenStorageService} from '../../../../_services/token-storage.service';
 import {MatDialog} from '@angular/material/dialog';
 import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
-import {User} from '../../../../../models/user.model';
-import {UserService} from '../../../../../_services/user.service';
+import {Matiere} from '../../../../models/matiere.model';
+import {MatiereService} from '../../../../_services/matiere.service';
 
 @Component({
-  selector: 'app-user-content',
-  templateUrl: './user-content.component.html',
-  styleUrls: ['./user-content.component.scss']
+  selector: 'app-matiere-content',
+  templateUrl: './matiere-content.component.html',
+  styleUrls: ['./matiere-content.component.scss']
 })
-export class UserContentComponent implements OnInit {
+export class MatiereContentComponent implements OnInit {
 
-  users: User[] = [];
+
+  matieres: Matiere[] = [];
 
   // Pour la pagination
   page: number;
   nextPage = 1;
   limit = 10;
-  countUsers: number;
+  countMatiers: number;
   public isAdmin: boolean;
 
 
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
-  groupe: any;
 
 
   constructor(
     private ngZone: NgZone,
     private tokenStorage: TokenStorageService,
-    private userService: UserService,
+    private matiereService: MatiereService,
     public dialog: MatDialog,
   ) {
   }
 
   ngOnInit(): void {
-    this.groupe = '';
     this.isAdmin = this.tokenStorage.getRole();
     this.getUsers();
   }
@@ -46,13 +45,13 @@ export class UserContentComponent implements OnInit {
     if (!this.nextPage) {
       return;
     }
-    this.userService
-      .getUsersPagine(this.nextPage, this.limit, this.groupe)
+    this.matiereService
+      .getMatierePagine(this.nextPage, this.limit)
       .subscribe((data: any) => {
         this.page = data.page;
         this.nextPage = data.nextPage;
-        this.countUsers = data.totalDocs;
-        this.users = this.users.concat(data.docs);
+        this.countMatiers = data.totalDocs;
+        this.matieres = this.matieres.concat(data.docs);
       });
   }
 
@@ -94,10 +93,4 @@ export class UserContentComponent implements OnInit {
   }
 
 
-  onSearchChange(value: any): void {
-    this.page = 1;
-    this.nextPage = 1;
-    this.users.length = 0;
-    this.getUsers();
-  }
 }

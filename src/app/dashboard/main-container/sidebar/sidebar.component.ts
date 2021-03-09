@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {TokenStorageService} from '../../../../_services/token-storage.service';
-import {User} from '../../../../models/user.model';
+import {TokenStorageService} from '../../../_services/token-storage.service';
+import {User} from '../../../models/user.model';
 
 @Component({
   selector: 'app-sidebar',

@@ -1,10 +1,10 @@
 import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
-import {TokenStorageService} from '../../../../../_services/token-storage.service';
-import {AssignementService} from '../../../../../_services/assignement.service';
+import {TokenStorageService} from '../../../../_services/token-storage.service';
+import {AssignementService} from '../../../../_services/assignement.service';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {DevoirService} from '../../../../../_services/devoir.service';
-import {Devoire} from '../../../../../models/devoire.model';
+import {DevoirService} from '../../../../_services/devoir.service';
+import {Devoire} from '../../../../models/devoire.model';
 import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
 import {ModalComponent} from './add-modal/modal.component';

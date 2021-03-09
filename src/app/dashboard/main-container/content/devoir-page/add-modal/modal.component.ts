@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {DevoirService} from '../../../../../../_services/devoir.service';
+import {DevoirService} from '../../../../../_services/devoir.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {Devoire} from '../../../../../../models/devoire.model';
+import {Devoire} from '../../../../../models/devoire.model';
 
 export interface DialogData {
   assid: string;

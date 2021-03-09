@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {DevoirService} from '../../../../../../_services/devoir.service';
+import {DevoirService} from '../../../../../_services/devoir.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({

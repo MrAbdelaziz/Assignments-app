@@ -1,41 +1,42 @@
 import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
 import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
-import {TokenStorageService} from '../../../../../_services/token-storage.service';
+import {TokenStorageService} from '../../../../_services/token-storage.service';
 import {MatDialog} from '@angular/material/dialog';
 import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
-import {Matiere} from '../../../../../models/matiere.model';
-import {MatiereService} from '../../../../../_services/matiere.service';
+import {User} from '../../../../models/user.model';
+import {UserService} from '../../../../_services/user.service';
 
 @Component({
-  selector: 'app-matiere-content',
-  templateUrl: './matiere-content.component.html',
-  styleUrls: ['./matiere-content.component.scss']
+  selector: 'app-user-content',
+  templateUrl: './user-content.component.html',
+  styleUrls: ['./user-content.component.scss']
 })
-export class MatiereContentComponent implements OnInit {
+export class UserContentComponent implements OnInit {
 
-
-  matieres: Matiere[] = [];
+  users: User[] = [];
 
   // Pour la pagination
   page: number;
   nextPage = 1;
   limit = 10;
-  countMatiers: number;
+  countUsers: number;
   public isAdmin: boolean;
 
 
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
+  groupe: any;
 
 
   constructor(
     private ngZone: NgZone,
     private tokenStorage: TokenStorageService,
-    private matiereService: MatiereService,
+    private userService: UserService,
     public dialog: MatDialog,
   ) {
   }
 
   ngOnInit(): void {
+    this.groupe = '';
     this.isAdmin = this.tokenStorage.getRole();
     this.getUsers();
   }
@@ -45,13 +46,13 @@ export class MatiereContentComponent implements OnInit {
     if (!this.nextPage) {
       return;
     }
-    this.matiereService
-      .getMatierePagine(this.nextPage, this.limit)
+    this.userService
+      .getUsersPagine(this.nextPage, this.limit, this.groupe)
       .subscribe((data: any) => {
         this.page = data.page;
         this.nextPage = data.nextPage;
-        this.countMatiers = data.totalDocs;
-        this.matieres = this.matieres.concat(data.docs);
+        this.countUsers = data.totalDocs;
+        this.users = this.users.concat(data.docs);
       });
   }
 
@@ -93,4 +94,10 @@ export class MatiereContentComponent implements OnInit {
   }
 
 
+  onSearchChange(value: any): void {
+    this.page = 1;
+    this.nextPage = 1;
+    this.users.length = 0;
+    this.getUsers();
+  }
 }

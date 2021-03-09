@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {TokenStorageService} from '../../../../../../_services/token-storage.service';
-import {AssignementService} from '../../../../../../_services/assignement.service';
+import {TokenStorageService} from '../../../../../_services/token-storage.service';
+import {AssignementService} from '../../../../../_services/assignement.service';
 import {Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 
