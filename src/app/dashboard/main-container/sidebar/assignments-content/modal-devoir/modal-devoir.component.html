@@ -1,31 +1,18 @@
-<!--
-<h1 mat-dialog-title>Hi {{data.userid}}</h1>
-<div mat-dialog-content>
-  Hi {{data.assid}}
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.userid" cdkFocusInitial>Ok</button>
-</div>
--->
-
-<form ngForm class="form" #assignmentForm style="text-align: center;">
-
+<div  style="text-align: center;">
   <h1 mat-dialog-title>créer un devoir</h1>
   <div mat-dialog-content style="display: contents;">
-
     <mat-horizontal-stepper [linear]="isLinear" #stepper>
-
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Title</ng-template>
+          <ng-template matStepLabel>Titre</ng-template>
           <mat-form-field>
-            <mat-label>Title :</mat-label>
-            <input matInput placeholder="Question ... " formControlName="title" [(ngModel)]="title" name="title"
+            <mat-label>Titre :</mat-label>
+            <input matInput placeholder="devoir ..." formControlName="title" [(ngModel)]="title" name="title"
                    required>
           </mat-form-field>
           <div>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button (click)="onNoClick()">Fermer</button>
+            <button mat-button matStepperNext color="primary">Suivant</button>
           </div>
         </form>
       </mat-step>
@@ -37,45 +24,36 @@
                       required></textarea>
           </mat-form-field>
           <div>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperPrevious>Retour</button>
+            <button mat-button matStepperNext>Suivant</button>
           </div>
         </form>
       </mat-step>
-
       <mat-step [stepControl]="thirdFormGroup">
         <form [formGroup]="thirdFormGroup">
           <ng-template matStepLabel>Groupe</ng-template>
           <mat-form-field>
             <mat-label>groupe :</mat-label>
-            <!--
-                        <input matInput placeholder="G1" formControlName="groupe"  [(ngModel)]="groupe"  name="groupe" required>
-            -->
-
             <select matNativeControl formControlName="groupe" [(ngModel)]="groupe" name="groupe" matInput>
               <option value="G1">G1</option>
               <option value="G2" selected>G2</option>
               <option value="G3">G3</option>
             </select>
           </mat-form-field>
-
-
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperPrevious>Retour</button>
+            <button mat-button matStepperNext>Suivant</button>
           </div>
         </form>
       </mat-step>
       <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
+        <ng-template matStepLabel>Actions</ng-template>
         <div>
           <button mat-button [mat-dialog-close]="id" cdkFocusInitial (click)="onSubmit($event);">Ajouter</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
-          <button mat-button (click)="onNoClick()">Close</button>
-
+          <button mat-button (click)="stepper.reset()">Réinitialiser</button>
+          <button mat-button (click)="onNoClick()">Fermer</button>
         </div>
       </mat-step>
     </mat-horizontal-stepper>
   </div>
-
-</form>
+</div>

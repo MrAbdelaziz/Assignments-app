@@ -5,6 +5,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {filter, map, pairwise, tap, throttleTime} from 'rxjs/operators';
 import {Matiere} from '../../../../models/matiere.model';
 import {MatiereService} from '../../../../_services/matiere.service';
+import {MatiereAddModalComponent} from './matiere-add-modal/matiere-add-modal.component';
 
 @Component({
   selector: 'app-matiere-content',
@@ -86,6 +87,15 @@ export class MatiereContentComponent implements OnInit {
 
   openDialog(): void {
     // TODO  new modal (add user)
+
+    const dialogRef = this.dialog.open(MatiereAddModalComponent, {
+      width: '500px',
+      data: this.tokenStorage.getUser().id
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   modifDialog(id: any): void {
