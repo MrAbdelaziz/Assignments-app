@@ -20,7 +20,7 @@ front-end https://assignement-app.herokuapp.com/
 </tr>
   <tr>
 <td>
-  back-end https://assignement-mr-buffa-server.herokuapp.com/
+  back-end https://assignement-mr-buffa-server.herokuapp.com/assignements
   </td>
 </tr>
 </table>
