@@ -20,7 +20,9 @@ front-end https://assignement-app.herokuapp.com/
 </tr>
   <tr>
 <td>
-  back-end https://assignement-mr-buffa-server.herokuapp.com/
+  back-end https://assignement-mr-buffa-server.herokuapp.com/api/assignements
+  <br>
+  Repo : https://github.com/boli-dev/Assignments-app_backend
   </td>
 </tr>
 </table>
