@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Devoire} from '../models/devoire.model';
+import {baseUrl} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class DevoirService {
   constructor(private http: HttpClient) {
   }
 
-  url = 'https://assignement-mr-buffa-server.herokuapp.com/api/devoires';
+  url = baseUrl + 'devoires';
 
   getDevoirsPagine(nextPage: number = 1, limit: number = 10, id: number, userid: number, isAdmin: boolean): Observable<any> {
     let urlPagination: string;
